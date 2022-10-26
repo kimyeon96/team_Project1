@@ -1,3 +1,4 @@
+/*
 package kopo.poly.service.Impl;
 
 import kopo.poly.persistance.mapper.INoticeHospitalMapper;
@@ -13,3 +14,4 @@ public class HospitalService implements INoticeHospitalService {
 
     private final INoticeHospitalMapper NoticeHospitalMapper;
 }
+*/

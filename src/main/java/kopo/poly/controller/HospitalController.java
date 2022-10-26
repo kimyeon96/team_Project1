@@ -1,3 +1,4 @@
+/*
 package kopo.poly.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,3 +21,4 @@ public class HospitalController {
         }
     }
 }
+*/
