@@ -149,6 +149,7 @@
             map: map,
         });
     }
+</script>
 
 
 <!--  footer -->
