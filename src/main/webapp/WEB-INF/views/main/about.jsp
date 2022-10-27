@@ -67,9 +67,7 @@
             <li><a class="dropdown-item" href="#">즐겨찾기</a></li>
             <li><a class="dropdown-item" href="#">내 주변 병원 찾기</a></li>
             <li><a class="dropdown-item" href="#">민간구급차 검색</a></li>
-            <li><a class="dropdown-item" href="#">응급실 조건 검색</a></li>
-            <li><a class="dropdown-item" href="#">의견 올리기</a></li>
-            <li><a class="dropdown-item" href="#">공지사항</a></li>
+            <li><a class="dropdown-item" href="emergency">응급실 조건 검색</a></li>
             ...
         </ul>
     </div>
@@ -101,6 +99,50 @@
     <div class="right">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
         <body>
+
+        <!-- Channel Plugin Scripts -->
+        <script>
+            (function() {
+                var w = window;
+                if (w.ChannelIO) {
+                    return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+                }
+                var ch = function() {
+                    ch.c(arguments);
+                };
+                ch.q = [];
+                ch.c = function(args) {
+                    ch.q.push(args);
+                };
+                w.ChannelIO = ch;
+                function l() {
+                    if (w.ChannelIOInitialized) {
+                        return;
+                    }
+                    w.ChannelIOInitialized = true;
+                    var s = document.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+                    s.charset = 'UTF-8';
+                    var x = document.getElementsByTagName('script')[0];
+                    x.parentNode.insertBefore(s, x);
+                }
+                if (document.readyState === 'complete') {
+                    l();
+                } else if (window.attachEvent) {
+                    window.attachEvent('onload', l);
+                } else {
+                    window.addEventListener('DOMContentLoaded', l, false);
+                    window.addEventListener('load', l, false);
+                }
+            })();
+            ChannelIO('boot', {
+                "pluginKey": "b17906a1-346e-4465-972a-2fc6feddcb16"
+            });
+        </script>
+        <!-- End Channel Plugin -->
+
         <div class="menu">
             <div class="search">
                 <input type="text" placeholder="입력" style="width:100px;height:50px;font-size:30px; position: relative top:80px; left :80px;" >
@@ -140,7 +182,7 @@
                             Medical Helper </h2>
                         <p>English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for
                         </p>
-                        <a class="read_more" href="/about.html">긴급호출 버튼 자리</a>
+                        <a class="read_more" href="#">긴급호출 버튼 자리</a>
                     </div>
                 </div>
                 <div class="col-md-5">

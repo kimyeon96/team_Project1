@@ -30,4 +30,11 @@ public class MainController {
 
         return "/main/about";
     }
+
+
+
+    @GetMapping("/emergency")
+    public String emergency() throws Exception{
+        return "/menu/emergency";
+    }
 }

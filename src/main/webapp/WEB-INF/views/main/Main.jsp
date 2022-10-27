@@ -59,6 +59,7 @@
 <div class="loader_bg">
     <div class="loader"><img src="/images/loading.gif" alt="#"/></div>
 </div>
+<div id="map" style="height: 600px;"></div>
 <!-- end loader -->
 <!-- top -->
 <!-- header -->
@@ -100,7 +101,7 @@
                     <h2>당신만을 위한 맞춤형 긴급의료시스템 </h2>
                     <p>English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for
                     </p>
-                    <a class="read_more" href="/main/about.jsp">About More</a>
+                    <a class="read_more" href="/main/about">Medical Helper</a>
                 </div>
             </div>
             <div class="col-md-5">
@@ -150,7 +151,7 @@
         });
     }
 </script>
-
+</body>
 
 <!--  footer -->
 <footer>
@@ -214,5 +215,4 @@
     </div>
 </footer>
 <!-- end footer -->
-</body>
 </html>
