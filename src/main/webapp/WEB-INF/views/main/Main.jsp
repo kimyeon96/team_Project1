@@ -59,7 +59,6 @@
 <div class="loader_bg">
     <div class="loader"><img src="/images/loading.gif" alt="#"/></div>
 </div>
-<div id="map" style="height: 600px;"></div>
 <!-- end loader -->
 <!-- top -->
 <!-- header -->
@@ -80,7 +79,16 @@
             <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
                 <div class="navbar-area">
                     <nav class="site-navbar">
+                        <ul>
+                            <li><a class="active" href="index.html">Home</a></li>
+                            <li><a href="about.html">즐겨찾기</a></li>
+                            <li><a href="action.html">내 주변 병원 찾기</a></li>
+                            <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
+                            <li><a href="news.html">민간 구급차 검색</a></li>
+                            <li><a href="doctores.html">응급실 조건 검색</a></li>
 
+                            <li><a href="contact.html">Contact </a></li>
+                        </ul>
                         <button class="nav-toggler">
                             <span></span>
                         </button>
@@ -115,38 +123,29 @@
 </div>
 <!-- end about -->
 
-    <div id="googleMap" style="width:50%; height:700px;"></div>
 
-    <script type="text/javascript">
-        function myMap(){
-            var mapOptions = {
-                center:new google.maps.LatLng(37.497175,127.027926),
-                zoom:10
-            };
-
-            var map = new google.maps.Map(
-                document.getElementById("googleMap")
-                , mapOptions );
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwonY43KCkySXlJTXldb8KNPnFM05S00U&callback=myMap"></script>
-</div>
+<div id="map" style="width:50%; height: 600px;"></div>
+<script defer src="./index.js"></script>
+<script
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwonY43KCkySXlJTXldb8KNPnFM05S00U&callback=initMap"
+></script>
 
 <script type="text/javascript">
     var map;
     function initMap() {
-        var cityHall = {lat: 37.566554, lng: 126.978546};
+        var woojangsan = {lat: 37.549685, lng: 126.842282};
 
         var defaultOptions = {
-            zoom: 12,
-            center: cityHall,
+            zoom: 14,
+            center: woojangsan,
             disableDefaultUI: true,
             zoomControl: true
         };
         map = new google.maps.Map(document.getElementById('map'), defaultOptions);
 
         var marker = new google.maps.Marker({
-            position: cityHall,
+            position: woojangsan,
             map: map,
         });
     }
