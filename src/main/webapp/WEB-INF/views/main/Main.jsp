@@ -85,7 +85,7 @@
                             <li><a href="action.html">내 주변 병원 찾기</a></li>
                             <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
                             <li><a href="news.html">민간 구급차 검색</a></li>
-                            <li><a href="doctores.html">응급실 조건 검색</a></li>
+                            <li><a href="/menu/emergency">응급실 조건 검색</a></li>
 
                             <li><a href="contact.html">Contact </a></li>
                         </ul>
