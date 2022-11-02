@@ -353,15 +353,16 @@ button {
     padding: 0;
     list-style: none;
     display: flex;
+
 }
 
 .site-navbar ul li a {
     color: #fef6fc;
-    font-size: 17px;
+    font-size: 16px;
     display: block;
     text-decoration: none;
     text-transform: uppercase;
-    padding-right: 100px;
+
 }
 
 .site-navbar ul li {

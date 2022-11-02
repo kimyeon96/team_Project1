@@ -2,48 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Javascript files-->
-    <script type="text/javascript">
-
-
-
-        <script src="/maincss.css"></script>
-    <script src="/mainjs.js"></script>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/custom.js">
-
-    </script>
-    <%--Javascript end--%>
-
     <!-- basic -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <!-- mobile metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-
     <!-- site metas -->
     <title>Covido</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <!-- bootstrap css -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-
     <!-- style css -->
     <link rel="stylesheet" href="/css/style.css">
-
     <!-- Responsive-->
     <link rel="stylesheet" href="/css/responsive.css">
-
     <!-- fevicon -->
-    <link rel="icon" href="/css/images/fevicon.png" type="image/gif" />
-
+    <link rel="icon" href="/images/fevicon.png" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
@@ -64,30 +41,29 @@
 <!-- header -->
 <header class="header-area">
     <div class="left">
-        <a href="/Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
+        <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
     <div class="right">
-        <a href="/Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
+        <a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
     </div>
     <div class="container">
         <div class="row d_flex">
             <div class="col-sm-3 logo_sm">
                 <div class="logo">
-                    <a href="/index.html"></a>
+                    <a href="index.html"></a>
                 </div>
             </div>
             <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
                 <div class="navbar-area">
                     <nav class="site-navbar">
                         <ul>
-                            <li><a class="active" href="index.html">Home</a></li>
-                            <li><a href="about.html">즐겨찾기</a></li>
-                            <li><a href="action.html">내 주변 병원 찾기</a></li>
-                            <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
-                            <li><a href="news.html">민간 구급차 검색</a></li>
-                            <li><a href="doctores.html">응급실 조건 검색</a></li>
-
-                            <li><a href="contact.html">Contact </a></li>
+                            <li><a href="/main/about">HOME</a></li>
+                            <li><a href="http://naver.com"> 즐겨찾기</a></li>
+                            <li><a href="http://naver.com">내 주변 병원 찾기</a></li>
+                            <li><a href="http://naver.com">Medical Helper</a></li>
+                            <li><a href="http://naver.com">민간 구급차 검색</a></li>
+                            <li><a href="/menu/emergency.jsp">응급실 조건 검색</a></li>
+                            <li><a href="http://naver.com">CONTACT</a></li>
                         </ul>
                         <button class="nav-toggler">
                             <span></span>
@@ -99,8 +75,7 @@
     </div>
 </header>
 <!-- end header -->
-
-<!-- about, 사실상 메인 페이지 -->
+<!-- about -->
 <div class="about">
     <div class="container_width">
         <div class="row d_flex">
@@ -109,7 +84,7 @@
                     <h2>당신만을 위한 맞춤형 긴급의료시스템 </h2>
                     <p>English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for
                     </p>
-                    <a class="read_more" href="/main/about">Medical Helper</a>
+                    <a class="read_more" href="/about.html">About More</a>
                 </div>
             </div>
             <div class="col-md-5">
@@ -123,7 +98,7 @@
 </div>
 <!-- end about -->
 
-
+<%--!!!!!!!!!!!!!!!!!!!!!!!!!!!지도 --%>
 <div id="map" style="width:50%; height: 600px;"></div>
 <script defer src="./index.js"></script>
 <script
@@ -150,8 +125,6 @@
         });
     }
 </script>
-</body>
-
 <!--  footer -->
 <footer>
     <div class="footer">
@@ -214,4 +187,13 @@
     </div>
 </footer>
 <!-- end footer -->
+
+
+<!-- Javascript files-->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/custom.js"></script>
+</body>
 </html>

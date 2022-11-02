@@ -37,4 +37,9 @@ public class MainController {
     public String emergency() throws Exception{
         return "/menu/emergency";
     }
+
+    @GetMapping("/hello")
+    public String helllo() throws Exception{
+        return "/menu/hello";
+    }
 }
