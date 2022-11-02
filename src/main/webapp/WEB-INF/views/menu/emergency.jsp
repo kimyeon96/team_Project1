@@ -4,6 +4,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
+    <!-- Javascript files-->
+    <script type="text/javascript">
+
+
+
+        <script src="/maincss.css"></script>
+    <script src="/mainjs.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/custom.js">
+
+    </script>
+    <!--Javascript end-->
+
+
     <!----상단바---->
     <div class="wrap">
     <div class="top_fix_zone" id="topBar">응급실 조건 검색</div>
@@ -366,6 +385,7 @@
 
     <br>
 </div>
+</body>
 
 
 <!--  footer -->
@@ -377,12 +397,12 @@
                     <div class="hedingh3 text_align_left">
                         <h3>Resources</h3>
                         <ul class="menu_footer">
-                            <li><a href="index.html">Home</a><li>
-                            <li><a href="javascript:void(0)">What we do</a><li>
-                            <li><a href="javascript:void(0)">Media</a><li>
-                            <li><a href="javascript:void(0)">Travel Advice</a><li>
-                            <li><a href="javascript:void(0)">Protection</a><li>
-                            <li><a href="javascript:void(0)">Care</a><li>
+                            <li><a href="/index.html">Home</a><li>
+                            <li><a href="/javascript:void(0)">What we do</a><li>
+                            <li><a href="/javascript:void(0)">Media</a><li>
+                            <li><a href="/javascript:void(0)">Travel Advice</a><li>
+                            <li><a href="/javascript:void(0)">Protection</a><li>
+                            <li><a href="/javascript:void(0)">Care</a><li>
                         </ul>
                     </div>
                 </div>
@@ -430,6 +450,4 @@
     </div>
 </footer>
 <!-- end footer -->
-
-</body>
 </html>

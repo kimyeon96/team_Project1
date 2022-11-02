@@ -80,7 +80,7 @@
                 <div class="navbar-area">
                     <nav class="site-navbar">
                         <ul>
-                            <li><a class="active" href="index.html">Home</a></li>
+                            <li><a class="active" href="index">Home</a></li>
                             <li><a href="about.html">즐겨찾기</a></li>
                             <li><a href="action.html">내 주변 병원 찾기</a></li>
                             <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
