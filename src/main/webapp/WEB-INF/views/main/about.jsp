@@ -57,31 +57,44 @@
 
 <body class="main-layout inner_page">
 
+<!-- header -->
 <header class="header-area">
-    <!-- Large button groups (default and split) -->
-    <div class="btn-group">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            메뉴
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">즐겨찾기</a></li>
-            <li><a class="dropdown-item" href="#">내 주변 병원 찾기</a></li>
-            <li><a class="dropdown-item" href="#">민간구급차 검색</a></li>
-            <li><a class="dropdown-item" href="emergency">응급실 조건 검색</a></li>
-            ...
-        </ul>
+    <div class="left">
+        <a href="/Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
-    <div class="btn-group">
-        <button class="btn btn-secondary btn-lg" type="button">
-            Large split button
-        </button>
-        <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-            ...
-        </ul>
+    <div class="right">
+        <a href="/Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
     </div>
+    <div class="container">
+        <div class="row d_flex">
+            <div class="col-sm-3 logo_sm">
+                <div class="logo">
+                    <a href="/index.html"></a>
+                </div>
+            </div>
+            <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
+                <div class="navbar-area">
+                    <nav class="site-navbar">
+                        <ul>
+                            <li><a class="active" href="index">Home</a></li>
+                            <li><a href="about.html">즐겨찾기</a></li>
+                            <li><a href="action.html">내 주변 병원 찾기</a></li>
+                            <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
+                            <li><a href="news.html">민간 구급차 검색</a></li>
+                            <li><a href="emergency">응급실 조건 검색</a></li>
+
+                            <li><a href="contact.html">Contact </a></li>
+                        </ul>
+                        <button class="nav-toggler">
+                            <span></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end header -->
     <!--</1><div class="dropdown">
 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
 메뉴
