@@ -269,7 +269,7 @@
         <div class="col-xs-11">
             <br>
             <div class="btn-group btn-group-vertical" data-toggle="buttons">
-                <label class="btn active">
+                <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
