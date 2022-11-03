@@ -47,10 +47,10 @@
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" >
     <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" media="screen"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <!-- body -->
@@ -84,7 +84,7 @@
                             <li><a href="about.html">즐겨찾기</a></li>
                             <li><a href="action.html">내 주변 병원 찾기</a></li>
                             <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
-                            <li><a href="news.html">민간 구급차 검색</a></li>
+                            <li><a href="news.html">민간인 구급차 검색</a></li>
                             <li><a href="emergency">응급실 조건 검색</a></li>
 
                             <li><a href="contact.html">Contact </a></li>
@@ -114,7 +114,7 @@
             </div>
             <div class="col-md-5">
                 <div class="about_img text_align_center">
-                    <figure><img src="/images/about.png" alt="#"/></figure>
+                    <figure><img src="/TeamMark.png" alt="#"/></figure>
                 </div>
             </div>
 
