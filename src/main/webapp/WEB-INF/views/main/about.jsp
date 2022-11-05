@@ -81,7 +81,7 @@
                             <li><a href="action.html">내 주변 병원 찾기</a></li>
                             <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
                             <li><a href="news.html">실시간 가용 병상 확인</a></li>
-                            <li><a href="emergency">응급실 조건 검색</a></li>
+                            <li><a href="EmerSearch">응급실 조건 검색</a></li>
 
                             <li><a href="contact.html">Contact </a></li>
                         </ul>

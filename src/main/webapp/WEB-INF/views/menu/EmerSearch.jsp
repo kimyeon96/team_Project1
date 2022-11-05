@@ -163,57 +163,63 @@
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
 
-        /*상단바*/
-        $(document).ready(function () {
-            var topBar = $("#topBar").offset();
-            $(window).scroll(function () {
-                var docScrollY = $(document).scrollTop()
-                var barThis = $("#topBar")
-                var fixNext = $("#fixNextTag")
-                if (docScrollY > topBar.top) {
-                    barThis.addClass("top_bar_fix");
-                    fixNext.addClass("pd_top_80");
-                } else {
-                    barThis.removeClass("top_bar_fix");
-                    fixNext.removeClass("pd_top_80");
-                }
-            });
-        })
-        /*상단바*/
+        function searchEmer(f) {
+            /*상단바*/
+            $(document).ready(function () {
+                var topBar = $("#topBar").offset();
+                $(window).scroll(function () {
+                    var docScrollY = $(document).scrollTop()
+                    var barThis = $("#topBar")
+                    var fixNext = $("#fixNextTag")
+                    if (docScrollY > topBar.top) {
+                        barThis.addClass("top_bar_fix");
+                        fixNext.addClass("pd_top_80");
+                    } else {
+                        barThis.removeClass("top_bar_fix");
+                        fixNext.removeClass("pd_top_80");
+                    }
+                });
+            })
+            /*상단바*/
 
-        function itemAllChk() {
-            if (document.getElementById("all").checked) {
 
-                var obj = document.getElementsByName("item[]");
-                for (i=0;i<obj.length;i++) {
-                    obj[i].checked = true;
+            function itemAllChk() {
+                if (document.getElementById("all").checked) {
+
+                    var obj = document.getElementsByName("item[]");
+                    for (i = 0; i < obj.length; i++) {
+                        obj[i].checked = true;
 //            document.getElementsByName("item[]")[i].checked = true;
-                }
+                    }
 
-            } else {
+                } else {
+
+                    var obj = document.getElementsByName("item[]");
+                    for (i = 0; i < obj.length; i++) {
+                        obj[i].checked = false;
+//            document.getElementsByName("item[]")[i].checked = false;
+                    }
+
+                }
+            }
+
+
+            function itemChk() {
+                var str = "";
 
                 var obj = document.getElementsByName("item[]");
-                for (i=0;i<obj.length;i++) {
-                    obj[i].checked = false;
-//            document.getElementsByName("item[]")[i].checked = false;
+                for (i = 0; i < obj.length; i++) {
+                    if (obj[i].checked) {
+                        str += " " + obj[i].value;
+                    }
                 }
-
+                alert(str);
             }
+            Getmapping=("obj[i].value")
         }
 
-        function itemChk() {
-            var str = "";
-
-            var obj = document.getElementsByName("item[]");
-            for (i=0;i<obj.length;i++) {
-                if (obj[i].checked) {
-                    str += " " + obj[i].value;
-                }
-            }
-            alert(str);
-        }
     </script>
 
 </head>
@@ -222,7 +228,7 @@
 
 <body>
 
-
+<form name="document" method="get" action="searchCondition" onsubmit="return searchEmer(this);">
 
 <div style="text-align: center" id="box1">
 
@@ -270,71 +276,82 @@
             <br>
             <div class="btn-group btn-group-vertical" data-toggle="buttons">
                 <label class="btn">
-                    <input type="checkbox" name='item[]'>
+                    <input type="checkbox" name='item[]' id="normal">
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 응급실 일반 병상 </span>
                 </label>
+
                 <label class="btn">
-                    <input type="checkbox" name='item[]'>
+                    <input type="checkbox" name='item[]' id="little">
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 응급실 소아 병상 </span>
                 </label>
+
                 <label class="btn">
-                    <input type="checkbox" name='item[]'>
+                    <input type="checkbox" name='item[]' id="3">
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 응급실 음압 격리 병상</span>
                 </label>
+
                 <label class="btn">
-                    <input type="checkbox" name='item[]'>
+                    <input type="checkbox" name='item[]' id="4">
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 응급실 일반 격리 병상</span>
                 </label>
+
                 <label class="btn">
-                    <input type="checkbox" name='item[]'>
+                    <input type="checkbox" name='item[]' id="5">
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 응급전용 중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 내과중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 외과중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 신생아중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 소아 중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 신경과중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
                     <i class="fa fa-check-square-o fa-2x"></i>
                     <span> 신경외과중환자실</span>
                 </label>
+
                 <label class="btn">
                     <input type="checkbox" name='item[]'>
                     <i class="fa fa-square-o fa-2x"></i>
@@ -345,7 +362,6 @@
 
 
 
-            </div>
 
 
 
@@ -366,7 +382,8 @@
 
     <br>
 </div>
-
+</div>
+</form>
 
 <!--  footer -->
 <footer>
