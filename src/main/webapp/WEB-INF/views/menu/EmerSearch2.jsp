@@ -173,9 +173,15 @@
     }
 </script>
 
+    <script src="http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire"></script>
 <script type="text/javascript">
-    function search_clickFunc() {
+    function doSearch() {
         alert('클릭이벤트발생');
+    $.ajax({
+        type: "GET",
+        url: "/rest/testvalue",
+        success: (data) => { console.log(data); $('#contents').html(data);}
+    });
     }
 
 var isHosChk = false;
@@ -191,6 +197,7 @@ if (!isHosChk) {
 }
 </script>
 
+
 </head>
 
 <body>
@@ -201,7 +208,7 @@ if (!isHosChk) {
     }
 %>--%>
 
-<form name="f" method="get" action="EmerSearch2" onsubmit="return SearchEmer(this);">
+<form name="f" method="get" action="EmerSearch3" onsubmit="return SearchEmer(this);">
         <br> <br> <br> <br>
 
         <select id="classification" style="width: 300px; height: 50px">
@@ -269,7 +276,9 @@ if (!isHosChk) {
     </label>
         <br>
     <label>
-        <input type="submit" id="search" name="search" style="WIDTH: 80pt; HEIGHT: 20pt" value="검색" >
+        <button onclick="doSearch()">검색</button>
+        <textarea id="contents"> </textarea>
+        <input type="submit" button onclick="doSearch()" id="search" name="search" style="WIDTH: 80pt; HEIGHT: 20pt" value="검색" >
     </label>
 
 </div>
