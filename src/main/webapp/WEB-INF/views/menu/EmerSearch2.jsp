@@ -197,6 +197,19 @@ if (!isHosChk) {
 }
 </script>
 
+    <script type="text/javascript">
+        var params={""}
+        function callOpenAPI() {
+            params.query = $("#query").val();
+            var q = $.param(params);
+            var ajax_url = "api_proxy.php?" + q;
+            $.ajax({type: "get", url:ajax_url,
+            contentType: "text/xml; charset=utf-8", dataType: "xml",
+            error: function (xhr, status, error) {alert("arror" + )}})
+        }
+
+    </script>
+
 
 </head>
 

@@ -5,6 +5,8 @@ import kopo.poly.dto.SearchDTO;
 import kopo.poly.service.IEmerSearchService;
 import kopo.poly.service.Impl.EmerSearchService;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -73,9 +75,10 @@ public class MainController {
     public String EmerSearch3(HttpServletRequest request, ModelMap model) throws Exception {
         log.info(this.getClass().getName() + "EmerSearch3 start!");
 
+
         /*service로 가는 코드*//*
         List<SearchDTO> set hostname = SearchService.getSearch*/
-        return "/menu/test";
+        return "menu/test";
     }
 
 /*    @GetMapping("/EmerSearch2")

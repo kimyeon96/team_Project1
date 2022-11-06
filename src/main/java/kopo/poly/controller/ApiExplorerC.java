@@ -1,4 +1,4 @@
-package kopo.poly.service.Impl;
+package kopo.poly.controller;
 
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
@@ -16,8 +16,8 @@ import java.net.URLEncoder;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-@Service("SearchService")
-public class ApiExplorer {
+
+public class ApiExplorerC {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire"); /*URL*/
 
@@ -51,34 +51,5 @@ public class ApiExplorer {
         rd.close();
         conn.disconnect();
         System.out.println(sb.toString()); // 공공 데이터에서 받은 데이터들을 전시해주는 코드
-
-    }/*
-
-    public ArrayList<Item> getItemList(String sidoName) throws IOException, ParserConfigurationException, SAXException{
-        ArrayList<Item> list = new ArrayList<Item>();
-        String xml = ApiExplorer.xmlDownload(sidoName);
-        *//* xml 파싱 -> List<item>*//*
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-
-        Document doc = builder.parse(new ByteArrayInputStream(xml.getBytes("utf-8")));
-
-        NodeList nodeList = doc.getElementsByTagName("item");*//*xml태그이름 중  item 부분을 전부 긁어모음*//*
-        for(int i=0; i<nodeList.getLength(); i++) {
-            Item item = new Item();
-            Node node = nodeList.item(i);
-            //태그안에 있는 요소를 가져오기위해 Element를 형변환 하여 다시 담아줌
-            Element e = (Element)node;
-
-            item.setHPID(e.getElementsByTagName("dataTime").item(0).getTextContent());
-            item.set(e.getElementsByTagName("cityName").item(0).getTextContent());
-            item.set(e.getElementsByTagName("so2value").item(0).getTextContent());
-            list.add(item);
-        }
-
-        System.out.println(doc);
-
-        return list;
     }
-}*/
-    }
+}
