@@ -5,33 +5,38 @@
     <meta charset="utf-8">
     <title>웹페이지 제목</title>
     <script>
-        /*병의원 목록정보 javascript 예시코드*/
+        /*병의원 목록정보 javascript 예시코드
         var xhr = new XMLHttpRequest();
-        var url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire'; /*URL*/
-        var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'7Zq8vD1J3swTyNa%2F00rDCrxp8pzBRc8hqkooc1KVq%2Fwtt0LlAb%2FyvjwDFUMwcK9jkgcKPI9jTAhG6oiaSV1%2BSA%3D%3D'; /*Service Key*/
-        queryParams += '&' + encodeURIComponent('Q0') + '=' + encodeURIComponent('서울특별시'); /**/
-        queryParams += '&' + encodeURIComponent('Q1') + '=' + encodeURIComponent('강남구'); /**/
-        queryParams += '&' + encodeURIComponent('QZ') + '=' + encodeURIComponent('B'); /**/
-        queryParams += '&' + encodeURIComponent('QD') + '=' + encodeURIComponent('D001'); /**/
-        queryParams += '&' + encodeURIComponent('QT') + '=' + encodeURIComponent('1'); /**/
-        queryParams += '&' + encodeURIComponent('QN') + '=' + encodeURIComponent('삼성병원'); /**/
-        queryParams += '&' + encodeURIComponent('ORD') + '=' + encodeURIComponent('NAME'); /**/
-        queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-        queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+        var url = 'http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire'; /!*URL*!/
+        var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'7Zq8vD1J3swTyNa%2F00rDCrxp8pzBRc8hqkooc1KVq%2Fwtt0LlAb%2FyvjwDFUMwcK9jkgcKPI9jTAhG6oiaSV1%2BSA%3D%3D'; /!*Service Key*!/
+        queryParams += '&' + encodeURIComponent('Q0') + '=' + encodeURIComponent('서울특별시'); /!**!/
+        queryParams += '&' + encodeURIComponent('Q1') + '=' + encodeURIComponent('강남구'); /!**!/
+        queryParams += '&' + encodeURIComponent('QZ') + '=' + encodeURIComponent('B'); /!**!/
+        queryParams += '&' + encodeURIComponent('QD') + '=' + encodeURIComponent('D001'); /!**!/
+        queryParams += '&' + encodeURIComponent('QT') + '=' + encodeURIComponent('1'); /!**!/
+        queryParams += '&' + encodeURIComponent('QN') + '=' + encodeURIComponent('삼성병원'); /!**!/
+        queryParams += '&' + encodeURIComponent('ORD') + '=' + encodeURIComponent('NAME'); /!**!/
+        queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /!**!/
+        queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /!**!/
         xhr.open('GET', url + queryParams);
         xhr.onreadystatechange = function () {
             if (this.readyState == 4) {
                 alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+
+                /!*+hos >> o0001, o0003
+                남은 응급 병동 1개
+                남은 소아 병동 1개*!/
             }
+
         };
 
-        xhr.send('');
+        xhr.send('');*/
     </script>
 </head>
 <body>
-조건 맞는 검색 결과 목록 보여줄 페이지
+<%--조건 맞는 검색 결과 목록 보여줄 페이지
 
-public static String url= "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire";
+public static String url= "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire";--%>
 
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <response>

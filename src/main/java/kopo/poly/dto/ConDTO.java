@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SearchDTO {
+public class ConDTO {
 
     public String HPID;
     public String pageNo;

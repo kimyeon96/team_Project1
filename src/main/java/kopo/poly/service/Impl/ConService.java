@@ -1,17 +1,18 @@
 package kopo.poly.service.Impl;
 
 
-import kopo.poly.dto.SearchDTO;
-import kopo.poly.service.IEmerSearchService;
+import kopo.poly.dto.ConDTO;
+import kopo.poly.persistance.mapper.IConMapper;
+import kopo.poly.service.IConService;
 import kopo.poly.util.tagValue;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 import javax.xml.bind.Element;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.soap.Node;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -22,10 +23,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@Service("EmerSearchService")
-public class EmerSearchService implements IEmerSearchService {
+@Service("ConService")
+public class ConService implements IConService {
+
+private final IConMapper conMapper;
+
+@Autowired
+public ConService(IConMapper conMapper) {
+    this.conMapper = conMapper;
+}
+
+
+
+
     @Override
-    public List<SearchDTO> EmerSearch() throws Exception {
+    public List<ConDTO> EmerSearch() throws Exception {
 
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire");
 /*URL*/
@@ -69,9 +81,9 @@ public class EmerSearchService implements IEmerSearchService {
         NodeList mList = root.getElementsByTagName("items").item(0).getChildNodes();
         log.info("mList size : " + mList.getLength());
 
-        List<SearchDTO> sList = new ArrayList<SearchDTO>();
+        List<ConDTO> sList = new ArrayList<ConDTO>();
         for (int i=0; i<mList.getLength(); i++) {
-            SearchDTO sDTO = new SearchDTO();
+            ConDTO sDTO = new ConDTO();
             org.w3c.dom.Node mNode = mList.item(i);
             Element eElement = (Element) mNode;
             sDTO.setHosName(tagValue.getTagValue("HosName", (org.w3c.dom.Element) eElement));
@@ -89,5 +101,10 @@ public class EmerSearchService implements IEmerSearchService {
         }
         log.info(this.getClass().getName() + ".callEmerSearchAPI start!");
         return sList;
+    }
+
+    @Override
+    public List<ConDTO> getSearchCon() throws Exception {
+        return null;
     }
 }

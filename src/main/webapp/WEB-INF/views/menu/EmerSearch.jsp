@@ -228,7 +228,7 @@
 
 <body>
 
-<form name="document" method="get" action="searchCondition" onsubmit="return searchEmer(this);">
+<form name="document" method="get" action="EmerSearch3" onsubmit="return searchEmer(this);">
 
 <div style="text-align: center" id="box1">
 

@@ -180,6 +180,7 @@
     $.ajax({
         type: "GET",
         url: "/rest/testvalue",
+        data: { hos : }
         success: (data) => { console.log(data); $('#contents').html(data);}
     });
     }
@@ -253,30 +254,30 @@ if (!isHosChk) {
 
 <br><br>
 <div onclick="f_clickFunc()">
-    <label><input type="checkbox" name="hos" value="all"> 응급실 일반 병상</label>
+    <label><input type="checkbox" name="hos1" value="o001"> 응급실 일반 병상</label>
 <br>
     <div onclick="f_clickFunc()">
-    <label><input type="checkbox" name="hos" value="region"> 응급실 소아 병상</label>
+    <label><input type="checkbox" name="hos2" value="o002"> 응급실 소아 병상</label>
 <br>
-    <label><input type="checkbox" name="hos" value="territory"> 응급실 음압 격리 병상</label>
+    <label><input type="checkbox" name="hos3" value="o0003"> 응급실 음압 격리 병상</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos4"> 응급실 일반 격리 병상</label>
+    <label><input type="checkbox" name="hos4" value="o004"> 응급실 일반 격리 병상</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos5"> 응급전용 중환자실</label>
+    <label><input type="checkbox" name="hos5" value="o005"> 응급전용 중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos6"> 내과 중환자실</label>
+    <label><input type="checkbox" name="hos6" value="o006"> 내과 중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos7"> 외과 중환자실</label>
+    <label><input type="checkbox" name="hos7" value="o007"> 외과 중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos8"> 신생아중환자실</label>
+    <label><input type="checkbox" name="hos8" value="o008"> 신생아중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos9"> 소아 중환자실</label>
+    <label><input type="checkbox" name="hos9" value="o009"> 소아 중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos10"> 신경과 중환자실</label>
+    <label><input type="checkbox" name="hos10" value="o011"> 신경과 중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos11"> 신경외과 중환자실</label>
+    <label><input type="checkbox" name="hos11" value="o007"> 신경외과 중환자실</label>
 <br>
-    <label><input type="checkbox" name="hos" value="hos12"> 화상중환자실</label>
+    <label><input type="checkbox" name="hos12" value="o013"> 화상중환자실</label>
     </div>
 
     <div>

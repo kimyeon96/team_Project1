@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+</beans>
+
+<response>
+<header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL SERVICE.</resultMsg>
+</header>
+<body>
+    <items>
+        <item>
+            <dgidIdName>가정의학과,내과,마취통증의학과,방사선종양학과,병리과,보건(의료원)소,비뇨기과,산부인과,성형외과,소아청소년과,소아치과,신경과,신경외과,안과,영상의학과,외과,응급의학과,이비인후과,재활의학과,정신건강의학과,정형외과,진단검사의학과,치과교정과,치과보존과,치과보철과,치주과,피부과,핵의학과,흉부외과</dgidIdName>
+            <dutyAddr>서울특별시 강남구 일원로 81 (일원동, 삼성의료원)</dutyAddr>
+            <dutyEryn>1</dutyEryn>
+            <dutyHano>1979</dutyHano>
+            <dutyHayn>1</dutyHayn>
+            <dutyInf>외래진료시간은 진료과목별 운영</dutyInf>
+            <dutyMapimg>일원역 1번 출구</dutyMapimg>
+            <dutyName>삼성서울병원</dutyName>
+            <dutyTel1>02-3410-2114</dutyTel1>
+            <dutyTel3>02-3410-2060</dutyTel3>
+            <dutyTime1c>1530</dutyTime1c>
+            <dutyTime1s>0830</dutyTime1s>
+            <dutyTime2c>1530</dutyTime2c>
+            <dutyTime2s>0830</dutyTime2s>
+            <dutyTime3c>1530</dutyTime3c>
+            <dutyTime3s>0830</dutyTime3s>
+            <dutyTime4c>1530</dutyTime4c>
+            <dutyTime4s>0830</dutyTime4s>
+            <dutyTime5c>1530</dutyTime5c>
+            <dutyTime5s>0830</dutyTime5s>
+            <hpbdn>1979</hpbdn>
+            <hpccuyn>25</hpccuyn>
+            <hperyn>71</hperyn>
+            <hpgryn>1749</hpgryn>
+            <hpicuyn>10</hpicuyn>
+            <hpid>A1100010</hpid>
+            <hpnicuyn>59</hpnicuyn>
+            <hpopyn>56</hpopyn>
+            <MKioskTy1>Y</MKioskTy1>
+            <MKioskTy10>Y</MKioskTy10>
+            <MKioskTy11>N</MKioskTy11>
+            <MKioskTy2>Y</MKioskTy2>
+            <MKioskTy25>Y</MKioskTy25>
+            <MKioskTy3>Y</MKioskTy3>
+            <MKioskTy4>Y</MKioskTy4>
+            <MKioskTy5>N</MKioskTy5>
+            <MKioskTy6>Y</MKioskTy6>
+            <MKioskTy7>Y</MKioskTy7>
+            <MKioskTy8>Y</MKioskTy8>
+            <MKioskTy9>N</MKioskTy9>
+            <o001>-13</o001>
+            <o002>3</o002>
+            <o003>6</o003>
+            <o004>1</o004>
+            <o006>9</o006>
+            <o007>11</o007>
+            <o008>6</o008>
+            <o009>6</o009>
+            <o012>0</o012>
+            <o015>3</o015>
+            <o016>2</o016>
+            <o017>2</o017>
+            <o018>2</o018>
+            <o022>17</o022>
+            <o024>4</o024>
+            <o025>12</o025>
+            <o026>Y</o026>
+            <o027>Y</o027>
+            <o028>Y</o028>
+            <o029>Y</o029>
+            <o030>Y</o030>
+            <o031>Y</o031>
+            <o032>Y</o032>
+            <o033>Y</o033>
+            <o034>Y</o034>
+            <o035>Y</o035>
+            <o038>176</o038>
+            <postCdn1>063</postCdn1>
+            <postCdn2>51 </postCdn2>
+            <wgs84Lat>37.48851613490445</wgs84Lat>
+            <wgs84Lon>127.08668245340024</wgs84Lon>
+        </item>
+    </items>
+    <numOfRows>1</numOfRows>
+    <pageNo>10</pageNo>
+    <totalCount>75969</totalCount>
+</body>
+</response>
