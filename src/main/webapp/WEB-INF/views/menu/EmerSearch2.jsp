@@ -235,18 +235,18 @@ if (!isHosChk) {
         </select>
         <br>
         <br>
-        <select id="city" style="width: 150px; height: 50px">
-            <option name="lang" value="seoul">서울</option>
-            <option name="lang"value="busan">부산</option>
-            <option name="lang"value="daegu">대구</option>
-            <option name="lang"value="incheon">인천</option>
+        <select name="city" style="width: 150px; height: 50px">
+            <option value="seoul">서울</option>
+            <option value="busan">부산</option>
+            <option value="daegu">대구</option>
+            <option value="incheon">인천</option>
         </select>
-        <select id="district" style="width: 150px; height: 50px">
-            <option name="lang"value="gangseo">강서구</option>
-            <option name="lang"value="gwanack">관악구</option>
-            <option name="lang"value="gumcheon">금천구</option>
-            <option name="lang"value="guro">구로구</option>
-            <option name="lang" value="noone">노원구</option>
+        <select name="district" style="width: 150px; height: 50px">
+            <option value="gangseo">강서구</option>
+            <option value="gwanack">관악구</option>
+            <option value="gumcheon">금천구</option>
+            <option value="guro">구로구</option>
+            <option value="noone">노원구</option>
         </select>
 <br><br><br><br><br><br>
         <input type="checkbox" class="checkbox" id="CheckAll" onclick="itemAllChk()">
