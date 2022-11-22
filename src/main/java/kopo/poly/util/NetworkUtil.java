@@ -1,18 +1,22 @@
 package kopo.poly.util;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.lang.Nullable;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
+@Getter
+@Setter
 @Slf4j
 public class NetworkUtil {
 
 
-    public String getUrlJSON(String apiUrl, String method) throws Exception {
+    public String getUrlXML(String apiUrl, String method) throws Exception {
         URL url = new URL(apiUrl);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod(method);
@@ -34,8 +38,5 @@ public class NetworkUtil {
 
         return sb.toString();
 
-    }
-    public String getUrlJSON(String apiUrl) throws Exception{
-        return this.getUrlJSON(apiUrl,"GET");
     }
 }

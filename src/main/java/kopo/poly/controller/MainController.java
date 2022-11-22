@@ -1,11 +1,15 @@
 package kopo.poly.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import kopo.poly.dto.ConDTO;
 import kopo.poly.dto.XmlDTO;
 import kopo.poly.service.IConService;
 import kopo.poly.service.Impl.ConService;
+import kopo.poly.util.CmmUtil;
+import kopo.poly.util.NetworkUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Response;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
 @Slf4j
-@RequestMapping(value = "/main")
-@RestController
+@Controller
 public class MainController {
     /*@Autowired()*/
 
@@ -75,16 +81,49 @@ public class MainController {
         List<SearchDTO> set hostname = SearchService.getSearch*/
         return "/menu/EmerSearch2";
     }
+/*    @Value("${hospital.api.key}")
+    private String apiKey;*/
 
     @GetMapping(value = "/EmerSearch3")
     public String EmerSearch3(HttpServletRequest request, ModelMap model) throws Exception {
-        log.info(this.getClass().getName() + "EmerSearch3 start!");
+        log.info( "EmerSearch3 start!");
+        log.info("## request: " + request.toString());
+        log.info("## model : " + model.toString());
 
-        List<ConDTO> SearchCon = conService.getSearchCon(); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+        List<String> general = new ArrayList<>(Arrays.asList(request.getParameterValues("hos1")));
 
-        model.addAttribute(""); /*모델은 controller에서 jsp로 값 넘길때*/
+        for(String a : general)
+        log.info(a);
 
-        List<String> s = new ArrayList<>();
+
+
+        /*List<String> general = ConService.getSearchCon(general);*/
+
+
+        /*임시 이어서 request.getParameter()*/
+/*        model.addAttribute("hos1", hos1);*/
+
+        /*List<ConDTO> SearchCon = conService.getSearchCon(); //getSearchCon의 리턴 값을 DTO로 넣어주는거*/
+
+/*        String apiParam = "?normal=" + normal + "&appid=" + apiKey;
+        String apiParam2 = "?infant=" + infant + "&appid=" + apiKey;
+        String apiParam3 = "?pressure=" + pressure + "&appid=" + apiKey;
+        String apiParam4 = "?normalIsolation=" + normalIsolation + "&appid=" + apiKey;
+        String apiParam5 = "?emerUseOnlyICU=" + emerUseOnlyICU + "&appid=" + apiKey;
+        String apiParam6 = "?internalMedicineICU=" + internalMedicineICU + "&appid=" + apiKey;
+        String apiParam7 = "?sergeryICU=" + sergeryICU + "&appid=" + apiKey;
+        String apiParam8 = "?neonatalICU=" + neonatalICU + "&appid=" + apiKey;
+        String apiParam9 = "?pediatricsICU=" + pediatricsICU + "&appid=" + apiKey;
+        String apiParam10 = "?neurology=" + neurology + "&appid=" + apiKey;
+        String apiParam11 = "?neuroSergery=" + neuroSergery + "&appid=" + apiKey;
+        String apiParam12 = "?burnICU=" + burnICU + "&appid=" + apiKey;
+        log.info("apiParam " + apiParam);
+
+        String xml = NetworkUtil.getUrlXML(IConService.apiURL + apiParam);*/
+
+        /*model.addAttribute(""); *//*모델은 controller에서 jsp로 값 넘길때*/
+
+        /*List<String> s = new ArrayList<>();
         for (int i=1; i < 13; i++) {
             String hos = "hos"+i;
             String E = request.getParameter(hos);
@@ -95,7 +134,7 @@ public class MainController {
 
         for(int i=0; i<s.size(); i++){
             log.info(s.get(i));
-        }
+        }*/
 
         /*ConService.함수(s)*/
 
@@ -111,7 +150,7 @@ public class MainController {
 
         XmlMapper xmlMapper = new XmlMapper();
 
-        File file = new File("Test.xml");
+        FileInputStream file = new FileInputStream("Test.xml");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(file));
 
