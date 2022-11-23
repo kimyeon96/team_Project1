@@ -8,17 +8,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.bind.Element;
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -40,7 +40,7 @@ public class ConService implements IConService {
     }*/
 
     @Override
-    public List<ConDTO> getSearchCon(List<String> general2) throws Exception {
+    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam) throws Exception {
 
         log.info("ConService start!");
         //<자바에서 웹으로 요청하는 방법>
@@ -55,21 +55,13 @@ public class ConService implements IConService {
         urlBuilder.append("&" + URLEncoder.encode("returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); */
 /*xml 또는 json*/
 
-        urlBuilder.append("&" + URLEncoder.encode("Q0","UTF-8") + "=" + URLEncoder.encode("seoul", "UTF-8"));
-        urlBuilder.append("&" + URLEncoder.encode("Q0","UTF-8") + "=" + URLEncoder.encode("busan", "UTF-8"));
-        urlBuilder.append("&" + URLEncoder.encode("Q0","UTF-8") + "=" + URLEncoder.encode("daegu", "UTF-8"));
-        urlBuilder.append("&" + URLEncoder.encode("Q0","UTF-8") + "=" + URLEncoder.encode("incheon", "UTF-8"));
+        urlBuilder.append("&" + URLEncoder.encode("Q0","UTF-8") + "=" + URLEncoder.encode(cityParam, "UTF-8"));
 /*주소(시도)*/
 
-        urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode("gangseo", "UTF-8"));
-        log.info("click gangseo");
-        urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode("gwanack", "UTF-8"));
-        log.info("gwanack");
-        urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode("gumcheon", "UTF-8"));
-        urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode("guro", "UTF-8"));
-        urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode("noone", "UTF-8"));
+        urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode(districtParam, "UTF-8"));
 /*주소(시군구)*/
-
+/*        log.info(cityParam);
+        log.info(districtParam);*/
 
 //URLEncoder.encode : 한글은 URLEncoding 작업을 해줘야 URL에서 정상적으로 전달이 됨
 
@@ -106,6 +98,7 @@ public class ConService implements IConService {
         while ((line = rd.readLine()) != null) {
             sb.append(line);
         }
+        log.info(sb.toString());
 
 
 
@@ -117,11 +110,59 @@ public class ConService implements IConService {
         rd.close();
         conn.disconnect();
 
-        //8. 6에서 누적한 결과 확인
-        System.out.println(sb.toString());
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
 
-        Document documentInfo = null;
-        documentInfo = (Document) DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(urlBuilder.toString());
+        Document document = builder.parse(new InputSource(new StringReader(sb.toString())));
+
+        NodeList nodelist     =  document.getElementsByTagName("dutyAddr");
+        NodeList nodelist0     =  document.getElementsByTagName("dutyDiv");
+        NodeList nodelist1     =  document.getElementsByTagName("dutyDivNam");
+        NodeList nodelist2     =  document.getElementsByTagName("dutyName");
+        NodeList nodelist3     =  document.getElementsByTagName("dutyTel1");
+        NodeList nodelist4     =  document.getElementsByTagName("dutyMapimg");
+        NodeList nodelist5     =  document.getElementsByTagName("dutyEmcls");
+        //태그 (< >)의 이름으로 불러오는 내용
+
+
+        //nodelist의 크기를 구하려면 getLength()라는 메소드가 있음
+
+        Node node       =  nodelist.item(0);//첫번째 element 얻기
+        Node node0       =  nodelist0.item(0);//첫번째 element 얻기
+        Node node1       =  nodelist1.item(0);//첫번째 element 얻기
+        Node node2       =  nodelist2.item(0);//첫번째 element 얻기
+        Node node3       =  nodelist3.item(0);//첫번째 element 얻기
+        Node node4       =  nodelist4.item(0);//첫번째 element 얻기
+        Node node5       =  nodelist5.item(0);//첫번째 element 얻기
+
+        Node textNode      =  nodelist.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode0      =  nodelist0.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode1      =  nodelist1.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode2      =  nodelist2.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode3      =  nodelist3.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode4      =  nodelist4.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode5      =  nodelist5.item(0).getChildNodes().item(0); //element의 text 얻기
+
+        System.out.println(textNode.getNodeValue());
+        System.out.println(textNode0.getNodeValue());
+        System.out.println(textNode1.getNodeValue());
+        System.out.println(textNode2.getNodeValue());
+        System.out.println(textNode3.getNodeValue());
+        System.out.println(textNode4.getNodeValue());
+        System.out.println(textNode5.getNodeValue());
+
+/*
+    }   catch (Exception e){
+        e.printStackTrace();
+
+    }*/
+
+        return null;
+}
+}
+
+        /*Document documentInfo = null;
+        documentInfo = (Document) DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(sb.toString());
         documentInfo.getDocumentElement().normalize();
 
         org.w3c.dom.Element root = documentInfo.getDocumentElement();
@@ -134,8 +175,8 @@ public class ConService implements IConService {
             org.w3c.dom.Node mNode = mList.item(i);
             Element eElement = (Element) mNode;
             sDTO.setHosName(tagValue.getTagValue("HosName", (org.w3c.dom.Element) eElement));
-/*            sDTO.setHosTel3(tagValue.getTagValue("hosTel", (org.w3c.dom.Element) eElement));
-            sDTO.setEK(tagValue.getTagValue("EK", (org.w3c.dom.Element) eElement));*/
+*//*            sDTO.setHosTel3(tagValue.getTagValue("hosTel", (org.w3c.dom.Element) eElement));
+            sDTO.setEK(tagValue.getTagValue("EK", (org.w3c.dom.Element) eElement));*//*
 
             ConService.log.info(i + "번째 ============================");
             ConService.log.info("HosName : " + sDTO.getHosName());
@@ -145,9 +186,11 @@ public class ConService implements IConService {
 
             sList.add(sDTO);
 
-        }
+        }*/
+/*
 
         ConService.log.info(this.getClass().getName() + ".callEmerSearchAPI start!");
         return sList;
     }
 }
+*/

@@ -90,17 +90,10 @@ public class MainController {
         log.info("## request: " + request.toString());
         log.info("## model : " + model.toString());
 
-        String cityParam = request.getParameter("lang");
-        String districtParam = request.getParameter("lang");
+        String cityParam = request.getParameter("city");
+        String districtParam = request.getParameter("district");
         log.info(cityParam);
         log.info(districtParam);
-
-        List<String> general2 = new ArrayList<>(Arrays.asList(request.getParameterValues("hos1")));
-
-        for(String a : general2)
-            log.info(a);
-
-
 
         /*List<String> general = ConService.getSearchCon(general);*/
 
@@ -108,7 +101,7 @@ public class MainController {
         /*임시 이어서 request.getParameter()*/
 /*        model.addAttribute("hos1", hos1);*/
 
-        List<ConDTO> SearchCon = conService.getSearchCon(general2); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+        List<ConDTO> SearchCon = conService.getSearchCon(null, cityParam, districtParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
 
 /*        String apiParam = "?normal=" + normal + "&appid=" + apiKey;
         String apiParam2 = "?infant=" + infant + "&appid=" + apiKey;

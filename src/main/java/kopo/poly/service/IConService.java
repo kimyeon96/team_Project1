@@ -11,5 +11,6 @@ public interface IConService {
     // 병‧의원별 기본정보 조회 API를 호출하여 병‧의원별 기본정보 결과 받아오기
 /*    ConDTO getCon(ConDTO cDTO) throws Exception;*/
 
-    List<ConDTO> getSearchCon(List<String> general) throws Exception;
+
+    List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam) throws Exception;
 }
