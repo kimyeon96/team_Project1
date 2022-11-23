@@ -1,30 +1,19 @@
 package kopo.poly.controller;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import kopo.poly.dto.ConDTO;
 import kopo.poly.dto.XmlDTO;
 import kopo.poly.service.IConService;
-import kopo.poly.service.Impl.ConService;
-import kopo.poly.util.CmmUtil;
-import kopo.poly.util.NetworkUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.ws.Response;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -92,8 +81,19 @@ public class MainController {
 
         String cityParam = request.getParameter("city");
         String districtParam = request.getParameter("district");
+        String HptorClnParam = request.getParameter("HptorCln");
+        String CODE_MSTParam = request.getParameter("CODE_MST");
+        String dayParam = request.getParameter("day");
+        String hosnameParam = request.getParameter("hosname");
+        String pageNoParam = request.getParameter("pageNo");
+        String ordParam = request.getParameter("ord");
         log.info(cityParam);
         log.info(districtParam);
+        log.info(HptorClnParam);
+        log.info(CODE_MSTParam);
+        log.info(dayParam);
+        log.info(hosnameParam);
+        log.info(ordParam);
 
         /*List<String> general = ConService.getSearchCon(general);*/
 
@@ -101,7 +101,7 @@ public class MainController {
         /*임시 이어서 request.getParameter()*/
 /*        model.addAttribute("hos1", hos1);*/
 
-        List<ConDTO> SearchCon = conService.getSearchCon(null, cityParam, districtParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+        List<ConDTO> SearchCon = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, ordParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
 
 /*        String apiParam = "?normal=" + normal + "&appid=" + apiKey;
         String apiParam2 = "?infant=" + infant + "&appid=" + apiKey;

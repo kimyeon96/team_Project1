@@ -3,7 +3,6 @@ package kopo.poly.service.Impl;
 
 import kopo.poly.dto.ConDTO;
 import kopo.poly.service.IConService;
-import kopo.poly.util.tagValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,19 +10,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
-import javax.xml.bind.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -40,7 +34,7 @@ public class ConService implements IConService {
     }*/
 
     @Override
-    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam) throws Exception {
+    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam, String dayParam, String hosnameParam, String nameParam) throws Exception {
 
         log.info("ConService start!");
         //<자바에서 웹으로 요청하는 방법>
@@ -51,18 +45,22 @@ public class ConService implements IConService {
 
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=7Zq8vD1J3swTyNa%2F00rDCrxp8pzBRc8hqkooc1KVq%2Fwtt0LlAb%2FyvjwDFUMwcK9jkgcKPI9jTAhG6oiaSV1%2BSA%3D%3D");
 /*Service Key*/
-/*
-        urlBuilder.append("&" + URLEncoder.encode("returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); */
-/*xml 또는 json*/
 
         urlBuilder.append("&" + URLEncoder.encode("Q0","UTF-8") + "=" + URLEncoder.encode(cityParam, "UTF-8"));
 /*주소(시도)*/
 
         urlBuilder.append("&" + URLEncoder.encode("Q1","UTF-8") + "=" + URLEncoder.encode(districtParam, "UTF-8"));
 /*주소(시군구)*/
-/*        log.info(cityParam);
-        log.info(districtParam);*/
+        log.info(cityParam);
+        log.info(districtParam);
 
+        urlBuilder.append("&" + URLEncoder.encode("QZ","UTF-8") + "=" + URLEncoder.encode(HptorClnParam, "UTF-8")); //CODE_MST의'H000' 참조(B:병원, C:의원)
+        urlBuilder.append("&" + URLEncoder.encode("QD","UTF-8") + "=" + URLEncoder.encode(CODE_MSTParam, "UTF-8")); //CODE_MST의'D000' 참조(D001~D029)
+        urlBuilder.append("&" + URLEncoder.encode("QT","UTF-8") + "=" + URLEncoder.encode(dayParam, "UTF-8")); //월~일요일(1~7), 공휴일(8)
+        urlBuilder.append("&" + URLEncoder.encode("QN","UTF-8") + "=" + URLEncoder.encode(hosnameParam, "UTF-8")); //기관명
+/*        urlBuilder.append("&" + URLEncoder.encode("ORD","UTF-8") + "=" + URLEncoder.encode(ordParam, "UTF-8")); //순서
+        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); //페이지 번호
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); //목록 건수*/
 //URLEncoder.encode : 한글은 URLEncoding 작업을 해줘야 URL에서 정상적으로 전달이 됨
 
         log.info("getSearchCon START !");
@@ -113,10 +111,11 @@ public class ConService implements IConService {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
-        Document document = builder.parse(new InputSource(new StringReader(sb.toString())));
+        Document document = builder.parse(new InputSource(new StringReader(sb.toString()))); //sb 객체의 투스트링 리턴값을 참조할 필요없이 StringReader로 생성, 그걸 초기화, 그 결과(리턴)값을 또 InputSource로 초기화 생성 한걸 파싱
+        //여기가 핵심 ******************************************* 빌더를 통해 sb 문자열을 (함수 리턴값을) 파싱해 Document 객체로 가져온다.
 
-        NodeList nodelist     =  document.getElementsByTagName("dutyAddr");
-        NodeList nodelist0     =  document.getElementsByTagName("dutyDiv");
+        NodeList nodelist     =  document.getElementsByTagName("dutyAddr"); //XML 문자열 덩어리 중 <dutyAddr> 태그의 내용을 가져온다.
+        NodeList nodelist0     =  document.getElementsByTagName("dutyDiv"); // 가져온 태그 목록을 NodeList 객체에 담았는데 *하나의 XML 태그가 하나의 Node 객체*에 매핑되기 때문입니다.
         NodeList nodelist1     =  document.getElementsByTagName("dutyDivNam");
         NodeList nodelist2     =  document.getElementsByTagName("dutyName");
         NodeList nodelist3     =  document.getElementsByTagName("dutyTel1");
@@ -135,7 +134,7 @@ public class ConService implements IConService {
         Node node4       =  nodelist4.item(0);//첫번째 element 얻기
         Node node5       =  nodelist5.item(0);//첫번째 element 얻기
 
-        Node textNode      =  nodelist.item(0).getChildNodes().item(0); //element의 text 얻기
+        Node textNode      =  nodelist.item(0).getChildNodes().item(0); //element의 text 얻기, ChildNodes는 하위 노드들
         Node textNode0      =  nodelist0.item(0).getChildNodes().item(0); //element의 text 얻기
         Node textNode1      =  nodelist1.item(0).getChildNodes().item(0); //element의 text 얻기
         Node textNode2      =  nodelist2.item(0).getChildNodes().item(0); //element의 text 얻기
