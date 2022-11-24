@@ -155,7 +155,7 @@ public class ConService implements IConService {
             System.out.println(a.get(i));
         }
 // 서비스에서 컨트롤러로 다시 보냄
-// DTO 를 통해서 컨트롤러로 전달.
+// DTO 를 통해서 컨트롤러로 전달. + model도 사용됨
 //      컨트롤러에서 jsp
 
 
