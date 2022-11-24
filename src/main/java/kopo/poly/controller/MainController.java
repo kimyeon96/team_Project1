@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -73,6 +74,7 @@ public class MainController {
 /*    @Value("${hospital.api.key}")
     private String apiKey;*/
 
+//  @RequestBody jsp(어떤 요청에 대해서 데이터로 보내줌)에서 ajax로 받음 @GetMapping() 경로 리턴타입으로 보내줌
     @GetMapping(value = "/EmerSearch3")
     public String EmerSearch3(HttpServletRequest request, ModelMap model) throws Exception {
         log.info( "EmerSearch3 start!");
@@ -87,12 +89,14 @@ public class MainController {
         String hosnameParam = request.getParameter("hosname");
         String pageNoParam = request.getParameter("pageNo");
         String ordParam = request.getParameter("ord");
+        String numOfRowsParam = request.getParameter("numOfRows");
         log.info(cityParam);
         log.info(districtParam);
         log.info(HptorClnParam);
         log.info(CODE_MSTParam);
         log.info(dayParam);
         log.info(hosnameParam);
+        log.info(pageNoParam);
         log.info(ordParam);
 
         /*List<String> general = ConService.getSearchCon(general);*/
@@ -101,7 +105,7 @@ public class MainController {
         /*임시 이어서 request.getParameter()*/
 /*        model.addAttribute("hos1", hos1);*/
 
-        List<ConDTO> SearchCon = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, ordParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+        List<ConDTO> SearchCon = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
 
 /*        String apiParam = "?normal=" + normal + "&appid=" + apiKey;
         String apiParam2 = "?infant=" + infant + "&appid=" + apiKey;
@@ -138,6 +142,7 @@ public class MainController {
 
         /*service로 가는 코드*//*
         List<SearchDTO> set hostname = SearchService.getSearch*/
+        model.addAttribute("key","파일");
         return "menu/test";
     }
 

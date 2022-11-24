@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,9 @@
 
     <style>
         <%--css스타일적용--%>
+        * {
+            font-family: Consolas, sans-serif;
+        }
 
         <!----상단바---->
         .wrap {}
@@ -173,7 +177,36 @@
         }
     </script>
 
-    <script src="http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlBassInfoInqire"></script>
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        function optionChange() {
+            var 서울특별시 = ['종로구','중구','용산구','성동구','광진구','동대문구','중랑구','성북구','강북구','도봉구','노원구','은평구','서대문구','마포구','양천구','강서구','구로구','금천구','영등포구','동작구','관악구','서초구','강남구','송파구','강동구'];
+            var 부산광역시 = ['중구','서구','동구','영도구','부산진구','동래구','남구','북구','해운대구','금정구','수영구','사상구','영도구','부산진구','해운대구'];
+            var 대구광역시 = ['중구','동구','서구','남구','북구','수성구','달서구','달성군'];
+            var 인천광역시 = ['중구','동구','미추홀구','연수구','남동구','부평구','계양구','서구']
+            var v = $('#city').val();
+            var o;
+            if ( v == '서울특별시') {
+                o = 서울특별시;
+            } else if (v == '부산광역시') {
+                o = 부산광역시;
+            } else if (v == '대구광역시') {
+                o = 대구광역시;
+            } else if (v == '인천광역시') {
+                o = 인천광역시;
+            } else {
+                o = [];
+            }
+            $( '#district' ).empty();
+            $( '#district' ).append( '<option></option>' );
+            for ( var i = 0; i < o.length; i++ ) {
+                $( '#district' ).append( '<option>' + o[ i ] + '</option>' );
+            }
+        }
+    </script>
+
+<%--
+
     <script type="text/javascript">
         function doSearch() {
             alert('클릭이벤트발생');
@@ -210,6 +243,7 @@
         }
 
     </script>
+--%>
 
 
 </head>
@@ -221,7 +255,6 @@
         String s = val + "hos";
     }
 %>--%>
-
 <form name="f" method="get" action="/EmerSearch3" onsubmit="return SearchEmer(this);">
     <br> <br> <br> <br>
 
@@ -235,28 +268,27 @@
     </select>
     <br>
     <br>
-    <select name="city" style="width: 150px; height: 50px">
-        <option>== 시도 선택 ==</option>
+    <select id="city" name="city" style="width: 150px; height: 50px" onchange="optionChange();">
         <option value="서울특별시">서울</option>
         <option value="부산광역시">부산</option>
         <option value="대구광역시">대구</option>
         <option value="인천광역시">인천</option>
     </select>
-    <select name="district" style="width: 150px; height: 50px">
-        <option>== 시군구 선택 ==</option>
+    <select id="district" name="district" style="width: 150px; height: 50px">
+        <%--<option> ==시군구 선택==</option>
         <option value="강서구">강서구</option>
         <option value="관악구">관악구</option>
         <option value="금천구">금천구</option>
         <option value="구로구">구로구</option>
         <option value="노원구">노원구</option>
-        //
+        <option> ==== </option>>
         <option value="금정구">금정구</option>
         <option value="수영구">수영구</option>
         <option value="사상구">사상구</option>
         <option value="영도구">영도구</option>
         <option value="부산진구">부산진구</option>
         <option value="해운대구">해운대구</option>
-        //
+        <option> ====</option>
         <option value="중구">중구</option>
         <option value="동구">동구</option>
         <option value="서구">서구</option>
@@ -265,7 +297,7 @@
         <option value="수성구">수성구</option>
         <option value="달서구">달서구</option>
         <option value="달성군">달성군</option>
-        //
+        <option> ====</option>
         <option value="중구">중구</option>
         <option value="동구">동구</option>
         <option value="미추홀구">미추홀구</option>
@@ -274,7 +306,9 @@
         <option value="부평구">부평구</option>
         <option value="계양구">계양구</option>
         <option value="서구">서구</option>
-    </select>
+    </select>--%>
+
+
     <br><br><br><br><br><br>
     <input type="checkbox" class="checkbox" id="CheckAll" onclick="itemAllChk()">
     전체
@@ -282,10 +316,10 @@
     <br><br>
     <div onclick="f_clickFunc()">
         <select name="HptorCln" style="width: 300px; height: 50px">
-            <option value="B">B병원</option>
-            <option value="C">C의원</option>
+            <option value="B">병원 분류</option>
+            <option value="C">의원 분류</option>
         </select>
-
+        <br>
         <select name="CODE_MST" style="width: 300px; height: 50px">
             <option value="D001">진료과목1</option>
             <option value="D002">진료과목2</option>
@@ -310,7 +344,7 @@
             <option value="D021">진료과목21</option>
             <option value="D022">진료과목22</option>
         </select>
-
+<br>
         <select name="day" style="width: 300px; height: 50px">
             <option value="1">월요일</option>
             <option value="2">화요일</option>
@@ -321,26 +355,32 @@
             <option value="7">일요일</option>
             <option value="8">공휴일</option>
         </select>
-
+        <br>
         <select name="pageNo" style="width: 300px; height: 50px">
             <option value="1">순서 1페이지</option>
             <option value="2">순서 2페이지</option>
             <option value="3">순서 3페이지</option>
             <option value="4">순서 4페이지</option>
         </select>
-
+        <br>
         <select name="ord" style="width: 300px; height: 50px">
-            <option value="병원"
+            <option value="NAME">병원 이름순</option>
         </select>
 
+        <input type="radio" name="numOfRows" value="10">목록 갯수
+
+
+        <br>
+        <br>
+        <br>
 
 <%--        <select id="QN" style="width: 300px; height: 50px">
             <option name="QN" value="삼성병원">병원</option>
         </select>--%>
 
-<%--        <label><input type="checkbox" name="hos1" value="o001"> 응급실 일반 병상</label>
+        <label><input type="checkbox" name="hos1" value="o001"> 응급실 일반 병상</label>
         <br>
-        &lt;%&ndash;<div onclick="f_clickFunc()">&ndash;%&gt;
+        <%--&lt;%&ndash;--%><div onclick="f_clickFunc()"><%--&ndash;%&gt;--%>
         <label><input type="checkbox" name="hos1" value="o002"> 응급실 소아 병상</label>
         <br>
         <label><input type="checkbox" name="hos1" value="o003"> 응급실 음압 격리 병상</label>
@@ -362,7 +402,7 @@
         <label><input type="checkbox" name="hos1" value="o007"> 신경외과 중환자실</label>
         <br>
         <label><input type="checkbox" name="hos1" value="o013"> 화상중환자실</label>
-    </div>--%>
+    </div>
 
     <div>
         <label>

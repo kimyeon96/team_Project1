@@ -2,20 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <!-- Javascript files-->
     <script type="text/javascript">
-
-
-
-        <script src="/maincss.css"></script>
+    <script src="/maincss.css"></script>
     <script src="/mainjs.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
     <script src="/js/owl.carousel.min.js"></script>
-    <script src="/js/custom.js">
-
-    </script>
+    <script src="/js/custom.js"></script>
     <%--Javascript end--%>
 
     <!-- basic -->
@@ -55,6 +52,50 @@
 </head>
 <!-- body -->
 <body class="main-layout inner_page">
+
+<!-- Channel Plugin Scripts -->
+<script>
+    (function() {
+        var w = window;
+        if (w.ChannelIO) {
+            return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+        }
+        var ch = function() {
+            ch.c(arguments);
+        };
+        ch.q = [];
+        ch.c = function(args) {
+            ch.q.push(args);
+        };
+        w.ChannelIO = ch;
+        function l() {
+            if (w.ChannelIOInitialized) {
+                return;
+            }
+            w.ChannelIOInitialized = true;
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+            s.charset = 'UTF-8';
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        }
+        if (document.readyState === 'complete') {
+            l();
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', l);
+        } else {
+            window.addEventListener('DOMContentLoaded', l, false);
+            window.addEventListener('load', l, false);
+        }
+    })();
+
+    ChannelIO('boot', {
+        "pluginKey": "875b5a88-7571-45b5-8dd9-a0d4507a2c64"
+    });
+</script>
+<!-- End Channel Plugin -->
 <!-- loader  -->
 <div class="loader_bg">
     <div class="loader"><img src="/images/loading.gif" alt="#"/></div>
@@ -73,7 +114,7 @@
         <div class="row d_flex">
             <div class="col-sm-3 logo_sm">
                 <div class="logo">
-                    <a href="/index.html"></a>
+
                 </div>
             </div>
             <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
@@ -82,12 +123,9 @@
                         <ul>
                             <li><a class="active" href="index">Home</a></li>
                             <li><a href="about.html">즐겨찾기</a></li>
-                            <li><a href="action.html">내 주변 병원 찾기</a></li>
-                            <li><a href="index.html" class="logo_midle">Medical Helper</a></li>
-                            <li><a href="EmerSearch2">민간인 구급차 검색</a></li>
-                            <li><a href="EmerSearch">응급실 조건 검색</a></li>
-
-                            <li><a href="contact.html">Contact </a></li>
+                            <li><a href="action.html">내 주변 병원찾기</a></li>
+                            <li><a href="Amb/AmbInfo">구급차 정보</a></li>
+                            <li><a href="EmerSearch2">병의원 리스트</a></li>
                         </ul>
                         <button class="nav-toggler">
                             <span></span>
@@ -99,59 +137,53 @@
     </div>
 </header>
 <!-- end header -->
+<div id="map" style="width:100%; height: 100vh;"></div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwonY43KCkySXlJTXldb8KNPnFM05S00U&callback=initMap&region=kr"></script>
+<script>
+    function initMap() {
+        var kangseopoly = { lat:  37.549775360143265 ,lng: 126.84233038945548  };
+        var map = new google.maps.Map(
+            document.getElementById('map'), {
+                zoom: 17,
+                center: kangseopoly
+            });
 
-<!-- about, 사실상 메인 페이지 -->
-<div class="about">
-    <div class="container_width">
-        <div class="row d_flex">
-            <div class="col-md-7">
-                <div class="titlepage text_align_left">
-                    <h2>당신만을 위한 맞춤형 긴급의료시스템 </h2>
-                    <p>English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for
-                    </p>
-                    <a class="read_more" href="/main/about">Medical Helper</a>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="about_img text_align_center">
-                    <figure><img src="/TeamMark.png" alt="#"/></figure>
-                </div>
-            </div>
+    }
 
-        </div>
-    </div>
+
+    <div id="googleMap" style="width:100%; height:700px;"></div>
+
+    <script type="text/javascript">
+        function myMap(){
+        var mapOptions = {
+        center:new google.maps.LatLng( 37.549775360143265,126.84233038945548),
+        zoom:17
+    };
+        var map = new google.maps.Map(
+        document.getElementById("googleMap")
+        , mapOptions );
+    }
+</script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCwonY43KCkySXlJTXldb8KNPnFM05S00U&callback=myMap"></script>
 </div>
-<!-- end about -->
-
-
-<div id="map" style="width:50%; height: 600px;"></div>
-<script defer src="./index.js"></script>
-<script
-        defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwonY43KCkySXlJTXldb8KNPnFM05S00U&callback=initMap"
-></script>
 
 <script type="text/javascript">
     var map;
+
     function initMap() {
-        var woojangsan = {lat: 37.549685, lng: 126.842282};
-
-        var defaultOptions = {
-            zoom: 14,
-            center: woojangsan,
-            disableDefaultUI: true,
-            zoomControl: true
-        };
-        map = new google.maps.Map(document.getElementById('map'), defaultOptions);
-
-        var marker = new google.maps.Marker({
-            position: woojangsan,
-            map: map,
+        var polykangseo = { lat: 37.549775360143265 ,lng: 126.84233038945548 };
+        map = new google.maps.Map( document.getElementById('map'), {
+            zoom: 17,
+            center: polykangseo
         });
+
+        new google.maps.Marker({
+            position: polykangseo,
+            map: map,
+            label: "현 위치"
+        })
     }
 </script>
-</body>
-
 <!--  footer -->
 <footer>
     <div class="footer">
@@ -159,14 +191,14 @@
             <div class="row">
                 <div class="col-lg-2 col-md-6 col-sm-6">
                     <div class="hedingh3 text_align_left">
-                        <h3>Resources</h3>
+                        <h3>Medical Helper</h3>
                         <ul class="menu_footer">
-                            <li><a href="/index.html">Home</a><li>
-                            <li><a href="/javascript:void(0)">What we do</a><li>
-                            <li><a href="/javascript:void(0)">Media</a><li>
-                            <li><a href="/javascript:void(0)">Travel Advice</a><li>
-                            <li><a href="/javascript:void(0)">Protection</a><li>
-                            <li><a href="/javascript:void(0)">Care</a><li>
+                            <li><a href="about">about 연동</a></li>
+                            <li><a href="javascript:void(0)">즐겨찾기</a></li>
+                            <li><a href="javascript:void(0)">내 주변 병원찾기</a></li>
+                            <li><a href="javascript:void(0)">민간 구급차 검색</a></li>
+                            <li><a href="javascript:void(0)">응급실 조건검색</a></li>
+                            <li><a href="javascript:void(0)">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -214,4 +246,5 @@
     </div>
 </footer>
 <!-- end footer -->
+</body>
 </html>
