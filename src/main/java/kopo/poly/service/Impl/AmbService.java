@@ -1,4 +1,4 @@
-package kopo.poly.service.impl;
+package kopo.poly.service.Impl;
 
 import kopo.poly.dto.AmbRowDTO;
 import kopo.poly.service.IAmbService;

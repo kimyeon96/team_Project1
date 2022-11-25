@@ -78,7 +78,6 @@ public class MainController {
     @GetMapping(value = "/EmerSearch3")
     public String EmerSearch3(HttpServletRequest request, ModelMap model) throws Exception {
         log.info( "EmerSearch3 start!");
-        log.info("## request: " + request.toString());
         log.info("## model : " + model.toString());
 
         String cityParam = request.getParameter("city");
@@ -99,50 +98,9 @@ public class MainController {
         log.info(pageNoParam);
         log.info(ordParam);
 
-        /*List<String> general = ConService.getSearchCon(general);*/
+        List<ConDTO> conList = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
 
-
-        /*임시 이어서 request.getParameter()*/
-/*        model.addAttribute("hos1", hos1);*/
-
-        List<ConDTO> SearchCon = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
-
-/*        String apiParam = "?normal=" + normal + "&appid=" + apiKey;
-        String apiParam2 = "?infant=" + infant + "&appid=" + apiKey;
-        String apiParam3 = "?pressure=" + pressure + "&appid=" + apiKey;
-        String apiParam4 = "?normalIsolation=" + normalIsolation + "&appid=" + apiKey;
-        String apiParam5 = "?emerUseOnlyICU=" + emerUseOnlyICU + "&appid=" + apiKey;
-        String apiParam6 = "?internalMedicineICU=" + internalMedicineICU + "&appid=" + apiKey;
-        String apiParam7 = "?sergeryICU=" + sergeryICU + "&appid=" + apiKey;
-        String apiParam8 = "?neonatalICU=" + neonatalICU + "&appid=" + apiKey;
-        String apiParam9 = "?pediatricsICU=" + pediatricsICU + "&appid=" + apiKey;
-        String apiParam10 = "?neurology=" + neurology + "&appid=" + apiKey;
-        String apiParam11 = "?neuroSergery=" + neuroSergery + "&appid=" + apiKey;
-        String apiParam12 = "?burnICU=" + burnICU + "&appid=" + apiKey;
-        log.info("apiParam " + apiParam);
-
-        String xml = NetworkUtil.getUrlXML(IConService.apiURL + apiParam);*/
-
-        /*model.addAttribute(""); *//*모델은 controller에서 jsp로 값 넘길때*/
-
-        /*List<String> s = new ArrayList<>();
-        for (int i=1; i < 13; i++) {
-            String hos = "hos"+i;
-            String E = request.getParameter(hos);
-            if (E != null) {
-                s.add(E);
-            };
-        }
-
-        for(int i=0; i<s.size(); i++){
-            log.info(s.get(i));
-        }*/
-
-        /*ConService.함수(s)*/
-
-        /*service로 가는 코드*//*
-        List<SearchDTO> set hostname = SearchService.getSearch*/
-        model.addAttribute("key","파일");
+        model.addAttribute("conList",conList);
         return "menu/test";
     }
 
@@ -161,13 +119,5 @@ public class MainController {
 
         return pDTO;
     }
-/*    @GetMapping("/EmerSearch2")
-    public ModelAndView EmerSearch2 ()
-    {
-        ModelAndView model = new ModelAndView("main");
 
-        model.addObject("testvalue", "안녕!");
-
-        return model;
-    }*/
 }

@@ -1,10 +1,7 @@
-package kopo.poly.service.impl;
+package kopo.poly.service.Impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import kopo.poly.dto.EmerDTO;
 import kopo.poly.dto.EmerRowDTO;
 import kopo.poly.service.IEmerService;
-import kopo.poly.util.CmmUtil;
 import kopo.poly.util.tagValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,15 +10,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Slf4j
