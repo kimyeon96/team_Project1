@@ -3,25 +3,21 @@ package kopo.poly.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class ConDTO {
 
-    public String HPID;
-    public String pageNo;
-    public String numOfRows;
-    public String setHosName;
+    List<String> general;
+    private String cityParam;
+    private String districtParam;
+    private String HptorClnParam;
+    private String CODE_MSTParam;
+    private String dayParam;
+    private String hosnameParam;
+    private String pageNoParam;
+    private String ordParam;
+    private String numOfRowsParam;
 
-    public void setHosName(String hosName) {
-    }
-
-    public void setHosTel3(String hosTel) {
-    }
-
-    public void setEK(String ek) {
-    }
-
-    public String getHosName() {
-        return "";
-    }
 }

@@ -51,7 +51,9 @@
     <br>
     <span id="amb_info"></span>
 
-
+<%
+    model
+%>
 
 
 
