@@ -89,6 +89,7 @@ public class MainController {
         String pageNoParam = request.getParameter("pageNo");
         String ordParam = request.getParameter("ord");
         String numOfRowsParam = request.getParameter("numOfRows");
+        String telParam = request.getParameter("tel");
         log.info(cityParam);
         log.info(districtParam);
         log.info(HptorClnParam);
@@ -98,26 +99,18 @@ public class MainController {
         log.info(pageNoParam);
         log.info(ordParam);
 
-        List<ConDTO> conList = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+        List<ConDTO> conList = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam, telParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
 
         model.addAttribute("conList",conList);
         return "menu/test";
     }
 
-    @GetMapping(value = "test001")
-    public XmlDTO insertUser(HttpServletRequest request, ModelMap model) throws Exception {
 
-        log.info(this.getClass().getName() + ".insertUserInfo start!");
+@GetMapping(value = "test02")
+    public String BassTest(HttpServletRequest request, ModelMap model) throws Exception {
+        log.info("BassTest start!!");
+        log.info("## model : " + model.toString());
 
-        XmlMapper xmlMapper = new XmlMapper();
-
-        FileInputStream file = new FileInputStream("Test.xml");
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(file));
-
-        XmlDTO pDTO = xmlMapper.readValue(file, XmlDTO.class);
-
-        return pDTO;
-    }
-
+        return "menu/test02";
+}
 }

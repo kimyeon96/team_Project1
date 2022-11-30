@@ -30,7 +30,7 @@ public class ConService implements IConService {
     private String apiKey;
 
     @Override
-    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam, String dayParam, String hosnameParam, String pageNoParam, String ordParam, String numOfRowsParam) throws Exception {
+    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam, String dayParam, String hosnameParam, String pageNoParam, String ordParam, String numOfRowsParam, String telParam) throws Exception {
 
         log.info("ConService start!");
         //<자바에서 웹으로 요청하는 방법>
@@ -40,7 +40,7 @@ public class ConService implements IConService {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire"); /*URL*/
 
         /*Service Key*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + apiKey);
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") +"="+ apiKey);
 
         /*주소(시도)*/
         urlBuilder.append("&" + URLEncoder.encode("Q0", "UTF-8") + "=" + URLEncoder.encode(cityParam, "UTF-8"));
@@ -57,7 +57,7 @@ public class ConService implements IConService {
         urlBuilder.append("&" + URLEncoder.encode("QN", "UTF-8") + "=" + URLEncoder.encode(hosnameParam, "UTF-8")); //기관명
         urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode(pageNoParam, "UTF-8")); //페이지 번호
         urlBuilder.append("&" + URLEncoder.encode("ORD", "UTF-8") + "=" + URLEncoder.encode(ordParam, "UTF-8")); //순서
-        /*        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); //목록 건수*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); //목록 건수*/
 
         log.info("getSearchCon START !");
 
@@ -118,9 +118,19 @@ public class ConService implements IConService {
         for (int i = 0; i < nodelist.getLength(); i++) {
             ConDTO result = new ConDTO();
             result.setHosnameParam(nodelist.item(i).getChildNodes().item(0).getNodeValue());
+            result.setCityParam(addr.item(i).getChildNodes().item(0).getNodeValue());
+            result.setHptorClnParam(divNam.item(i).getChildNodes().item(0).getNodeValue());
+            result.setTelParam(tel.item(i).getChildNodes().item(0).getNodeValue());
+            results.add(result);
+            log.info(String.format("No. #%d %s %s", i, result.getHosnameParam(), result.getCityParam()));
+        }
+
+
+/*        for (int i = 0; i < addr.getLength(); i++) {
+            ConDTO result = new ConDTO();
             results.add(result);
             log.info(String.format("No. #%d", i) + result.toString());
-        }
+        }*/
 
         return results;
     }

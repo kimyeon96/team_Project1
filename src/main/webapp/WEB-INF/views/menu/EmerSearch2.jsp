@@ -177,23 +177,61 @@
         }
     </script>
 
-    <script src="jquery-3.6.1.min.js"></script>
     <script>
         function optionChange() {
-            var 서울특별시 = ['종로구','중구','용산구','성동구','광진구','동대문구','중랑구','성북구','강북구','도봉구','노원구','은평구','서대문구','마포구','양천구','강서구','구로구','금천구','영등포구','동작구','관악구','서초구','강남구','송파구','강동구'];
-            var 부산광역시 = ['중구','서구','동구','영도구','부산진구','동래구','남구','북구','해운대구','금정구','수영구','사상구','영도구','부산진구','해운대구'];
-            var 대구광역시 = ['중구','동구','서구','남구','북구','수성구','달서구','달성군'];
-            var 인천광역시 = ['중구','동구','미추홀구','연수구','남동구','부평구','계양구','서구']
+            var 강원도 = ['춘천시', '원주시', '강릉시', '동해시', '태백시', '속초시', '삼척시', '홍천군', '횡성군', '영월군', '평창군', '정선군', '철원군', '화천군', '양구군', '인제군', '고성군', '양양군']
+            var 서울특별시 = ['종로구', '중구', '용산구', '성동구', '광진구', '동대문구', '중랑구', '성북구', '강북구', '도봉구', '노원구', '은평구', '서대문구', '마포구', '양천구', '강서구', '구로구', '금천구', '영등포구', '동작구', '관악구', '서초구', '강남구', '송파구', '강동구'];
+            var 경기도 = ['가평군', '고양시', '과천시', '광주시', '구리시', '군포시', '김포시', '남양주시', '동두천시', '성남시', '수정구', '중원구', '분당구', '수원시', '장안구', '권선구', '팔달구', '영통구', '시흥시', '안산시', '상록구', '단원구', '덕양구', '일산동구', '일산서구', '오산시', '안성시', '안양시', '만안구', '동안구', '부천시', '광명시', '양주시', '양평군', '여주시', '연천군', '오산시', '용인시', '의왕시', '의정부시', '이천시', '파주시', '평택시', '포천시', '하남시', '화성시'];
+            var 인천광역시 = ['중구', '동구', '미추홀구', '연수구', '남동구', '부평구', '계양구', '서구', '강화군', '옹진군']
+            var 충청북도 = ['청주시', '상당구', '서원구', '흥덕구', '청원구', '충주시', '제천시', '보은군', '옥천군', '영동군', '증평군', '진천군', '괴산군', '음성군', '단양군']
+            var 충청남도 = ['천안시', '동남구', '서북구', '공주시', '보령시', '아산시', '서산시', '논산시', '계룡시', '당진시', '금산군', '부여군', '서천군', '청양군', '홍성군', '예산군', '태안군']
+            var 대전광역시 = ['동구', '중구', '서구', '유성구', '대덕구']
+            var 대구광역시 = ['중구', '동구', '서구', '남구', '북구', '수성구', '달서구', '달성군'];
+            var 울산광역시 = ['중구', '남구', '동구', '북구', '울주군']
+            var 부산광역시 = ['중구', '서구', '동구', '영도구', '부산진구', '동래구', '남구', '북구', '해운대구', '금정구', '수영구', '사상구', '영도구', '부산진구', '해운대구'];
+            var 전라북도 = ['전주시', '완산구', '덕진구', '군산시', '익산시', '정읍시', '남원시', '김제시', '완주군', '진안군', '무주군', '장수군', '임실군', '순창군', '고창군', '부안군']
+            var 전라남도 = ['목포시', '여수시', '순천시', '나주시', '광양시', '담양군', '곡성군', '구례군', '고흥군', '보성군', '화순군', '장흥군', '강진군', '해남군', '영암군', '무안군', '함평군', '영광군', '장성군', '완도군', '진도군', '신안군']
+            var 광주광역시 = ['동구', '서구', '남구', '북구', '광산구']
+            var 경상북도 = ['포항시', '남구', '북구', '경주시', '김천시', '안동시', '구미시', '영주시', '영천시', '상주시', '문경시', '경산시', '군위군', '의성군', '청송군', '영양군', '영덕군', '청도군', '고령군', '성주군', '칠곡군', '예천군', '봉화군', '울진군', '울릉군']
+            var 경상남도 = ['창원시', '의창구', '성산구', '마산합포구', '마산회원구', '진해구', '진주시', '통영시', '사천시', '김해시', '밀양시', '거제시', '양산시', '의령군', '함안군', '창녕군', '고성군', '남해군', '하동군', '산청군', '함양군', '거창군', '합천군']
+            var 세종특별자치시 = ['세종시']
+            var 제주특별자치도 = ['제주시', '서귀포시']
             var v = $('#city').val();
             var o;
-            if ( v == '서울특별시') {
+            if (v == '강원도') {
+                o = 강원도;
+            } else if (v == '서울특별시') {
                 o = 서울특별시;
-            } else if (v == '부산광역시') {
-                o = 부산광역시;
-            } else if (v == '대구광역시') {
-                o = 대구광역시;
+            } else if (v == '경기도') {
+                o = 경기도;
             } else if (v == '인천광역시') {
                 o = 인천광역시;
+            } else if (v == '충청북도') {
+                o=충청북도;
+            } else if (v=='충청남도') {
+                o=충청남도;
+            } else if (v=='대전광역시') {
+                o=대전광역시;
+            } else if (v == '대구광역시') {
+                o = 대구광역시;
+            } else if (v=='울산광역시') {
+                o=울산광역시;
+            } else if (v == '부산광역시') {
+                o = 부산광역시;
+            } else if (v=='전라북도') {
+                o=전라북도;
+            } else if (v=='전라남도') {
+                o=전라남도;
+            } else if (v == '광주광역시') {
+                o = 광주광역시;
+            } else if (v=='경상북도') {
+                o=경상북도;
+            } else if (v=='경상남도') {
+                o=경상남도;
+            } else if (v=='세종특별자치시') {
+                o=세종특별자치시;
+            } else if (v=='제주특별자치도') {
+                o=제주특별자치도;
             } else {
                 o = [];
             }
@@ -204,57 +242,31 @@
             }
         }
     </script>
-
-<%--
-
-    <script type="text/javascript">
-        function doSearch() {
-            alert('클릭이벤트발생');
-            $.ajax({
-                type: "GET",
-                url: "/rest/testvalue",
-                data: { hos : },
-                success: (data) => { console.log(data); $('#contents').html(data);}
-            });
-        }
-
-        var isHosChk = false;
-        var arrHos = document.getElementsByName("hos");
-        for (var i=0; arrHos.length; i++) {
-            if (arrHos[i].checked == true) {
-                isHosChk = true;
-                break;
-            }
-        }
-
-        if (!isHosChk) {
-        }
-    </script>
-
-    <script type="text/javascript">
-        var params={""}
-        function callOpenAPI() {
-            params.query = $("#query").val();
-            var q = $.param(params);
-            var ajax_url = "api_proxy.php?" + q;
-            $.ajax({type: "get", url:ajax_url,
-                contentType: "text/xml; charset=utf-8", dataType: "xml",
-                error: function (xhr, status, error) {alert("arror" + )}})
-        }
-
-    </script>
---%>
-
-
+    <script src="jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
-<%--<%
-    String[] value = request.getParameterValues("hos");
-    for (String val : value) {
-        String s = val + "hos";
-    }
-%>--%>
+<header>
+    <div class="top_fix_zone">
+        <img src="/images/img_hospital_01.jpg" style="opacity: 1" onmouseover="this.style.opacity='0.2'">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12 xs-text-center">
+                <h3 class="text-theme-colored font-36">병의원 리스트</h3>
+                    <ol class="breadcrumb white mt-10">
+                        <li>
+                            <a href="/Main">Home</a>
+                        </li>
+                        <li class="active text-theme-colored">
+                            병의원 리스트
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 <form name="f" method="get" action="/EmerSearch3" onsubmit="return SearchEmer(this);">
     <br> <br> <br> <br>
 
@@ -269,46 +281,27 @@
     <br>
     <br>
     <select id="city" name="city" style="width: 150px; height: 50px" onchange="optionChange();">
+        <option >== 시도 ==</option>
+        <option value="강원도">강원도</option>
         <option value="서울특별시">서울</option>
-        <option value="부산광역시">부산</option>
-        <option value="대구광역시">대구</option>
+        <option value="경기도">경기</option>
         <option value="인천광역시">인천</option>
+        <option value="충청북도">충북</option>
+        <option value="충청남도">충남</option>
+        <option value="대전광역시">대전</option>
+        <option value="대구광역시">대구</option>
+        <option value="울산광역시">울산</option>
+        <option value="부산광역시">부산</option>
+        <option value="전라남도">전남</option>
+        <option value="전라북도">전북</option>
+        <option value="광주광역시">광주</option>
+        <option value="경상북도">경북</option>
+        <option value="경상남도">경남</option>
+        <option value="세종특별자치시">세종</option>
+        <option value="제주특별자치도">제주</option>
     </select>
     <select id="district" name="district" style="width: 150px; height: 50px">
-        <%--<option> ==시군구 선택==</option>
-        <option value="강서구">강서구</option>
-        <option value="관악구">관악구</option>
-        <option value="금천구">금천구</option>
-        <option value="구로구">구로구</option>
-        <option value="노원구">노원구</option>
-        <option> ==== </option>>
-        <option value="금정구">금정구</option>
-        <option value="수영구">수영구</option>
-        <option value="사상구">사상구</option>
-        <option value="영도구">영도구</option>
-        <option value="부산진구">부산진구</option>
-        <option value="해운대구">해운대구</option>
-        <option> ====</option>
-        <option value="중구">중구</option>
-        <option value="동구">동구</option>
-        <option value="서구">서구</option>
-        <option value="남구">남구</option>
-        <option value="북구">북구</option>
-        <option value="수성구">수성구</option>
-        <option value="달서구">달서구</option>
-        <option value="달성군">달성군</option>
-        <option> ====</option>
-        <option value="중구">중구</option>
-        <option value="동구">동구</option>
-        <option value="미추홀구">미추홀구</option>
-        <option value="연수구">연수구</option>
-        <option value="남동구">남동구</option>
-        <option value="부평구">부평구</option>
-        <option value="계양구">계양구</option>
-        <option value="서구">서구</option>
-    </select>--%>
-
-
+        <option>== 시군구 ==</option>
     <br><br><br><br><br><br>
     <input type="checkbox" class="checkbox" id="CheckAll" onclick="itemAllChk()">
     전체
@@ -319,31 +312,34 @@
             <option value="B">병원 분류</option>
             <option value="C">의원 분류</option>
         </select>
-        <br>
+        <%--<br>
         <select name="CODE_MST" style="width: 300px; height: 50px">
-            <option value="D001">진료과목1</option>
-            <option value="D002">진료과목2</option>
-            <option value="D003">진료과목3</option>
-            <option value="D004">진료과목4</option>
-            <option value="D005">진료과목5</option>
-            <option value="D006">진료과목6</option>
-            <option value="D007">진료과목7</option>
-            <option value="D008">진료과목8</option>
-            <option value="D009">진료과목9</option>
-            <option value="D010">진료과목0</option>
-            <option value="D011">진료과목11</option>
-            <option value="D012">진료과목12</option>
-            <option value="D013">진료과목13</option>
-            <option value="D014">진료과목14</option>
-            <option value="D015">진료과목15</option>
-            <option value="D016">진료과목16</option>
-            <option value="D017">진료과목17</option>
-            <option value="D018">진료과목18</option>
-            <option value="D019">진료과목19</option>
-            <option value="D020">진료과목20</option>
-            <option value="D021">진료과목21</option>
-            <option value="D022">진료과목22</option>
-        </select>
+            <option value="D001">내과</option>
+            <option value="D002">소아청소년과</option>
+            <option value="D003">신경과</option>
+            <option value="D004">정신건강의학과</option>
+            <option value="D005">피부과</option>
+            <option value="D006">외과</option>
+            <option value="D007">흉부외과</option>
+            <option value="D008">정형외과</option>
+            <option value="D009">신경외과</option>
+            <option value="D010">성형외과</option>
+            <option value="D011">산부인과</option>
+            <option value="D012">안과</option>
+            <option value="D013">이비인후과</option>
+            <option value="D014">비뇨기과</option>
+            <option value="D016">재활의학과</option>
+            <option value="D017">마취통증의학과</option>
+            <option value="D018">영상의학과</option>
+            <option value="D019">치료방사선과</option>
+            <option value="D020">임상병리과</option>
+            <option value="D021">해부병리과</option>
+            <option value="D022">가정의학과</option>
+            <option value="D023">핵의학과</option>
+            <option value="D024">응급의학과</option>
+            <option value="D026">치과</option>
+            <option value="D034">구강악안면외과</option>
+        </select>--%>
 <br>
         <select name="day" style="width: 300px; height: 50px">
             <option value="1">월요일</option>
@@ -367,8 +363,6 @@
             <option value="NAME">병원 이름순</option>
         </select>
 
-        <input type="radio" name="numOfRows" value="10">목록 갯수
-
 
         <br>
         <br>
@@ -378,30 +372,56 @@
             <option name="QN" value="삼성병원">병원</option>
         </select>--%>
 
-        <label><input type="checkbox" name="hos1" value="o001"> 응급실 일반 병상</label>
+        <label><input type="radio" name="CODE_MST" value="D001"> 내과</label>
         <br>
         <%--&lt;%&ndash;--%><div onclick="f_clickFunc()"><%--&ndash;%&gt;--%>
-        <label><input type="checkbox" name="hos1" value="o002"> 응급실 소아 병상</label>
+        <label><input type="radio" name="CODE_MST" value="D002"> 소아청소년과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o003"> 응급실 음압 격리 병상</label>
+        <label><input type="radio" name="CODE_MST" value="D003"> 신경과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o004"> 응급실 일반 격리 병상</label>
+        <label><input type="radio" name="CODE_MST" value="D004"> 정신건강의학과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o005"> 응급전용 중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D005"> 피부과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o006"> 내과 중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D006"> 외과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o007"> 외과 중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D007"> 흉부외과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o008"> 신생아중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D008"> 정형외과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o009"> 소아 중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D009"> 신경외과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o011"> 신경과 중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D010"> 성형외과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o007"> 신경외과 중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D011"> 산부인과</label>
         <br>
-        <label><input type="checkbox" name="hos1" value="o013"> 화상중환자실</label>
+        <label><input type="radio" name="CODE_MST" value="D012"> 안과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D013"> 이비인후과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D014"> 비뇨기과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D016"> 재활의학과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D017"> 마취통증의학과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D018"> 영상의학과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D019"> 치료방사선과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D020"> 임상병리과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D021"> 해부병리과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D022"> 가정의학과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D023"> 핵의학과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D024"> 응급의학과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D026"> 치과</label>
+        <br>
+        <label><input type="radio" name="CODE_MST" value="D034"> 구강악안면외과</label>
     </div>
 
     <div>

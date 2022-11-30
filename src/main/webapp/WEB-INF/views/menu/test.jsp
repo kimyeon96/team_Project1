@@ -9,15 +9,172 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <div class="wrap">
+        <div class="top_fix_zone" id="topBar">병의원 리스트</div>
+    </div>
     <meta charset="utf-8">
     <title>웹페이지 제목</title>
+    <style>
+        <%--css스타일적용--%>
+        * {
+            font-family: Consolas, sans-serif;
+        }
+
+        <!----상단바---->
+            .wrap {}
+        .wrap div {
+            width: 100%;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .top_bar_fix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .pd_top_80 {
+            padding-top: 80px;
+        }
+
+        .wrap .top_fix_zone {
+            height: 80px;
+            background: #d63232;
+            line-height: 80px;
+        }
+        <!----상단바---->
+
+            body {
+                font-family: Arial;
+            }
+
+        #box1 {
+            margin:50px;
+        }
+
+        form div {
+            vertical-align: middle;
+        }
+
+        form div label {
+            vertical-align: top;
+        }
+
+        form > div > div {
+            display: inline-block;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            font-size: 16px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        input[type=text], input[type=checkbox], select {
+            display: inline-block;
+            font-size: 16px;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        input[type=text] {
+            width: 300px;
+            border: 1px solid #999999;
+        }
+        <!-------------------------------------------------->
+
+
+            label.btn span {
+                font-size: 1.5em ;
+            }
+
+        label input[type="radio"] ~ i.fa.fa-circle-o{
+            color: #c8c8c8;    display: inline;
+        }
+        label input[type="radio"] ~ i.fa.fa-dot-circle-o{
+            display: none;
+        }
+        label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+            display: none;
+        }
+        label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
+            color: #7AA3CC;    display: inline;
+        }
+        label:hover input[type="radio"] ~ i.fa {
+            color: #7AA3CC;
+        }
+
+        label input[type="checkbox"] ~ i.fa.fa-square-o{
+            color: #c8c8c8;    display: inline;
+        }
+        label input[type="checkbox"] ~ i.fa.fa-check-square-o{
+            display: none;
+        }
+        label input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+            display: none;
+        }
+        label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+            color: #7AA3CC;    display: inline;
+        }
+        label:hover input[type="checkbox"] ~ i.fa {
+            color: #7AA3CC;
+        }
+
+        div[data-toggle="buttons"] label.active{
+            color: #7AA3CC;
+        }
+
+        div[data-toggle="buttons"] label {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 2em;
+            text-align: left;
+            white-space: nowrap;
+            vertical-align: top;
+            cursor: pointer;
+            background-color: none;
+            border: 0px solid
+            #c8c8c8;
+            border-radius: 3px;
+            color: #c8c8c8;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+        div[data-toggle="buttons"] label:hover {
+            color: #7AA3CC;
+        }
+
+        div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+    </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-영화 순위 정보<br/>
+병의원 리스트<br/>
 -----------------------------------<br/>
 <%
     for (ConDTO rDTO : conList) {
-        out.println("영화 순위 : " + CmmUtil.nvl(rDTO.getHosnameParam()));
+        out.println("병원 이름 : " + CmmUtil.nvl(rDTO.getHosnameParam()) + " | 주소 : " + CmmUtil.nvl(rDTO.getCityParam()) + " | 병/의원 분류 : " + CmmUtil.nvl(rDTO.getHptorClnParam()) + " | 전화번호 : " + CmmUtil.nvl(rDTO.getTelParam()));
         out.println("<hr/>");
     }
 %>
