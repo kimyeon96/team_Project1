@@ -30,7 +30,7 @@ public class ConService implements IConService {
     private String apiKey;
 
     @Override
-    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam, String dayParam, String hosnameParam, String pageNoParam, String ordParam, String numOfRowsParam) throws Exception {
+    public List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam, String dayParam, String hosnameParam, String pageNoParam, String ordParam, String numOfRowsParam, String telParam) throws Exception {
 
         log.info("ConService start!");
         //<자바에서 웹으로 요청하는 방법>
@@ -40,7 +40,7 @@ public class ConService implements IConService {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552657/HsptlAsembySearchService/getHsptlMdcncListInfoInqire"); /*URL*/
 
         /*Service Key*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + apiKey);
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") +"="+ apiKey);
 
         /*주소(시도)*/
         urlBuilder.append("&" + URLEncoder.encode("Q0", "UTF-8") + "=" + URLEncoder.encode(cityParam, "UTF-8"));

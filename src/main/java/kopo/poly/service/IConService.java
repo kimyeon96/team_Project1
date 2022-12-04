@@ -12,5 +12,5 @@ public interface IConService {
 /*    ConDTO getCon(ConDTO cDTO) throws Exception;*/
 
 
-    List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam, String dayParam, String hosnameParam, String pageNoParam, String ordParam, String numOfRowsParam) throws Exception; //병의원별 목록정보 조회
+    List<ConDTO> getSearchCon(List<String> general, String cityParam, String districtParam, String HptorClnParam, String CODE_MSTParam,String dayParam, String hosnameParam, String pageNoParam, String ordParam, String numOfRowsParam, String telParam) throws Exception; //병의원별 목록정보 조회
 }
