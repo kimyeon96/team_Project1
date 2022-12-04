@@ -89,6 +89,7 @@ public class MainController {
         String pageNoParam = request.getParameter("pageNo");
         String ordParam = request.getParameter("ord");
         String numOfRowsParam = request.getParameter("numOfRows");
+        String telParam = request.getParameter("tel");
         log.info(cityParam);
         log.info(districtParam);
         log.info(HptorClnParam);
@@ -98,7 +99,7 @@ public class MainController {
         log.info(pageNoParam);
         log.info(ordParam);
 
-        List<ConDTO> conList = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+        List<ConDTO> conList = conService.getSearchCon(null, cityParam, districtParam, HptorClnParam, CODE_MSTParam, dayParam, hosnameParam, pageNoParam, ordParam, numOfRowsParam, telParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
 
         model.addAttribute("conList",conList);
         return "menu/test";

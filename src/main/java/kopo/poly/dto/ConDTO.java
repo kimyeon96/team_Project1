@@ -19,5 +19,7 @@ public class ConDTO {
     private String pageNoParam;
     private String ordParam;
     private String numOfRowsParam;
-
+    private String telParam;
+    private String emclsNameParam;
+    private String hpidParam;
 }
