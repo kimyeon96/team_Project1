@@ -105,20 +105,12 @@ public class MainController {
         return "menu/test";
     }
 
-    @GetMapping(value = "test001")
-    public XmlDTO insertUser(HttpServletRequest request, ModelMap model) throws Exception {
 
-        log.info(this.getClass().getName() + ".insertUserInfo start!");
+@GetMapping(value = "test02")
+    public String BassTest(HttpServletRequest request, ModelMap model) throws Exception {
+        log.info("BassTest start!!");
+        log.info("## model : " + model.toString());
 
-        XmlMapper xmlMapper = new XmlMapper();
-
-        FileInputStream file = new FileInputStream("Test.xml");
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(file));
-
-        XmlDTO pDTO = xmlMapper.readValue(file, XmlDTO.class);
-
-        return pDTO;
-    }
-
+        return "menu/test02";
+}
 }

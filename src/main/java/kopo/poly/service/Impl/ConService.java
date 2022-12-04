@@ -113,23 +113,11 @@ public class ConService implements IConService {
         NodeList mapimg = document.getElementsByTagName("dutyMapimg");
         NodeList emcls = document.getElementsByTagName("dutyEmcls");
         NodeList emclsName = document.getElementsByTagName("dutyEmclsName");
-        NodeList hpid = document.getElementsByTagName("hpid");
 
         List<ConDTO> results = new ArrayList<>();
         for (int i = 0; i < nodelist.getLength(); i++) {
             ConDTO result = new ConDTO();
             result.setHosnameParam(nodelist.item(i).getChildNodes().item(0).getNodeValue());
-            result.setCityParam(addr.item(i).getChildNodes().item(0).getNodeValue());
-            result.setHptorClnParam(divNam.item(i).getChildNodes().item(0).getNodeValue());
-            result.setTelParam(tel.item(i).getChildNodes().item(0).getNodeValue());
-            result.setEmclsNameParam(emclsName.item(i).getChildNodes().item(0).getNodeValue());
-            result.setHpidParam(hpid.item(i).getChildNodes().item(0).getNodeValue());
-            results.add(result);
-            log.info(String.format("No. #%d %s %s", i, result.getHosnameParam(), result.getCityParam()));
-        }
-
-        for (int i = 0; i < addr.getLength(); i++) {
-            ConDTO result = new ConDTO();
             results.add(result);
             log.info(String.format("No. #%d", i) + result.toString());
         }
