@@ -20,4 +20,6 @@ public class ConDTO {
     private String ordParam;
     private String numOfRowsParam;
     private String telParam;
+    private String emclsNameParam;
+    private String hpidParam;
 }

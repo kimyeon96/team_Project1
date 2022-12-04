@@ -15,6 +15,14 @@
     <meta charset="utf-8">
     <title>웹페이지 제목</title>
     <style>
+        table{
+            border-spacing: 10px;
+            border: 1px solid black;
+        }
+        th,td{
+            border: 1px solid black;
+            padding: 10px;
+        }
         <%--css스타일적용--%>
         * {
             font-family: Consolas, sans-serif;
@@ -170,13 +178,164 @@
 
 </head>
 <body>
-병의원 리스트<br/>
------------------------------------<br/>
-<%
-    for (ConDTO rDTO : conList) {
-        out.println("병원 이름 : " + CmmUtil.nvl(rDTO.getHosnameParam()) + " | 주소 : " + CmmUtil.nvl(rDTO.getCityParam()) + " | 병/의원 분류 : " + CmmUtil.nvl(rDTO.getHptorClnParam()) + " | 전화번호 : " + CmmUtil.nvl(rDTO.getTelParam()));
-        out.println("<hr/>");
+<table>
+    <caption>병의원 리스트</caption>
+    <tr>
+        <th style="text-align: center;">병원 이름 </th>
+        <th style="text-align: center;">주소 </th>
+        <th style="text-align: center;">기관 구분 </th>
+        <th style="text-align: center;">전화번호 </th>
+        <th style="text-align: center;">기관 ID </th>
+        <th style="text-align: center;">비고 </th>
+    </tr>
+    <tr style="height: 20px;">
+        <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
+            <br> <a href="test02">
+    <%
+        for (ConDTO rDTO : conList) {
+            out.println(CmmUtil.nvl(rDTO.getHosnameParam()));
+            out.println("<hr/>");
+
+            /*위도 경도 형식*/
+
+
+        }
+    %></td></a>
+      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
+          <br>
+          <%
+              for (ConDTO rDTO : conList) {
+                  out.println(CmmUtil.nvl(rDTO.getCityParam()));
+                  out.println("<hr/>");
+
+                  /*위도 경도 형식*/
+
+
+              }
+          %>
+      </td>
+      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
+          <br>
+          <%
+              for (ConDTO rDTO : conList) {
+                  out.println(CmmUtil.nvl(rDTO.getHptorClnParam()));
+                  out.println("<hr/>");
+
+                  /*위도 경도 형식*/
+
+
+              }
+          %>
+      </td>
+      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
+          <br>
+          <%
+              for (ConDTO rDTO : conList) {
+                  out.println(CmmUtil.nvl(rDTO.getTelParam()));
+                  out.println("<hr/>");
+
+                  /*위도 경도 형식*/
+
+
+              }
+          %>
+      </td>
+      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
+          <br>
+          <%
+              for (ConDTO rDTO : conList) {
+                  out.println(CmmUtil.nvl(rDTO.getHpidParam()));
+                  out.println("<hr/>");
+
+                  /*위도 경도 형식*/
+
+
+              }
+          %>
+      </td>
+      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
+          <br>
+          <%
+              for (ConDTO rDTO : conList) {
+                  out.println(CmmUtil.nvl(rDTO.getEmclsNameParam()));
+                  out.println("<hr/>");
+
+                  /*위도 경도 형식*/
+
+
+              }
+          %>
+      </td>
+    </tr>
+
+</table>
+<br/>
+<br/>
+
+
+<div id="googleMap" style="width:50%; height:700px;"></div>
+
+<script type="text/javascript">
+    function myMap(){
+        var mapOptions = {
+            center:new google.maps.LatLng(37.58162579102474,127.02949877221415<html>
+                <head>
+                <meta charset="UTF-8">
+            <title>음식점</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            <link rel="stylesheet" href="{% static 'third/style.css' %}">
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/third/list">음식점</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/third/list">리스트</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/third/create">등록</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>),
+            zoom:10
+        };
+        var map = new google.maps.Map(
+            document.getElementById("googleMap")
+            , mapOptions );
     }
-%>
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwonY43KCkySXlJTXldb8KNPnFM05S00U&callback=myMap"></script>
+</div>
+
+<script type="text/javascript">
+    var map;
+    function initMap() {
+        var cityHall = {lat: 37.566554, lng: 126.978546};
+        var defaultOptions = {
+            zoom: 12,
+            center: cityHall,
+            disableDefaultUI: true,
+            zoomControl: true
+        };
+        map = new google.maps.Map(document.getElementById('map'), defaultOptions);
+        var marker = new google.maps.Marker({
+            position: cityHall,
+            map: map,
+        });
+    }
+</script>
+
 </body>
 </html>

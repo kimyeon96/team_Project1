@@ -57,7 +57,7 @@ public class ConService implements IConService {
         urlBuilder.append("&" + URLEncoder.encode("QN", "UTF-8") + "=" + URLEncoder.encode(hosnameParam, "UTF-8")); //기관명
         urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode(pageNoParam, "UTF-8")); //페이지 번호
         urlBuilder.append("&" + URLEncoder.encode("ORD", "UTF-8") + "=" + URLEncoder.encode(ordParam, "UTF-8")); //순서
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); //목록 건수*/
+        /*        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); //목록 건수*/
 
         log.info("getSearchCon START !");
 
@@ -118,19 +118,9 @@ public class ConService implements IConService {
         for (int i = 0; i < nodelist.getLength(); i++) {
             ConDTO result = new ConDTO();
             result.setHosnameParam(nodelist.item(i).getChildNodes().item(0).getNodeValue());
-            result.setCityParam(addr.item(i).getChildNodes().item(0).getNodeValue());
-            result.setHptorClnParam(divNam.item(i).getChildNodes().item(0).getNodeValue());
-            result.setTelParam(tel.item(i).getChildNodes().item(0).getNodeValue());
-            results.add(result);
-            log.info(String.format("No. #%d %s %s", i, result.getHosnameParam(), result.getCityParam()));
-        }
-
-
-/*        for (int i = 0; i < addr.getLength(); i++) {
-            ConDTO result = new ConDTO();
             results.add(result);
             log.info(String.format("No. #%d", i) + result.toString());
-        }*/
+        }
 
         return results;
     }
