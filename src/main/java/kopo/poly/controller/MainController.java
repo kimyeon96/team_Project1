@@ -106,11 +106,21 @@ public class MainController {
     }
 
 
-@GetMapping(value = "test02")
+@GetMapping(value = "test03")
     public String BassTest(HttpServletRequest request, ModelMap model) throws Exception {
+/*        log.info("BassTest start!!");
+        log.info("## model : " + model.toString());
+
+    List<ConDTO> conList = conService.getSearchCon(null, latParam, lonParam); //getSearchCon의 리턴 값을 DTO로 넣어주는거
+    model.addAttribute("conList",conList);*/
+        return "menu/test03";
+}
+
+    @GetMapping(value = "test02")
+    public String mapviewTest(HttpServletRequest request, ModelMap model) throws Exception {
         log.info("BassTest start!!");
         log.info("## model : " + model.toString());
 
         return "menu/test02";
-}
+    }
 }

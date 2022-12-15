@@ -2,6 +2,7 @@
 <%@ page import="kopo.poly.dto.ConDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="kopo.poly.util.CmmUtil" %>
+<%@ page import="java.util.ArrayList" %>
 <%
     //Controller로부터 전달받은 데이터
     List<ConDTO> conList = (List<ConDTO>) request.getAttribute("conList");
@@ -9,6 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=740f24d1a74ccd422897c9fc4e7e13c9"></script>
     <div class="wrap">
         <div class="top_fix_zone" id="topBar">병의원 리스트</div>
     </div>
@@ -177,9 +179,20 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 </head>
-<body>
-<table>
-    <caption>병의원 리스트</caption>
+
+
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+  개수 :   <%= conList.size() %>
+</div>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
     <tr>
         <th style="text-align: center;">병원 이름 </th>
         <th style="text-align: center;">주소 </th>
@@ -188,87 +201,59 @@
         <th style="text-align: center;">기관 ID </th>
         <th style="text-align: center;">비고 </th>
     </tr>
-    <tr style="height: 20px;">
-        <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
-            <br> <a href="test02">
-    <%
-        for (ConDTO rDTO : conList) {
-            out.println(CmmUtil.nvl(rDTO.getHosnameParam()));
-            out.println("<hr/>");
+    </thead>
+    <tbody>
+        <% for (ConDTO rDTO : conList) {%>
+        <tr style="height: 20px;">
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-auto"><%= CmmUtil.nvl(rDTO.getHosnameParam()) %>
+            </td>
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-auto"> <a href="test03"> <img src="images/location-pin.png" onclick="clickBtn();"/><%= CmmUtil.nvl(rDTO.getCityParam()) %></a>
+            </td>
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-auto"><%= CmmUtil.nvl(rDTO.getHptorClnParam()) %>
+            </td>
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-auto"><img src="images/tel_color.png"><%= CmmUtil.nvl(rDTO.getTelParam()) %>
+            </td>
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-auto"><%= CmmUtil.nvl(rDTO.getHpidParam()) %>
+            </td>
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-2 text-muted"><%= CmmUtil.nvl(rDTO.getEmclsNameParam()) %>
+            </td>
 
-            /*위도 경도 형식*/
+            <td style="width: 16.6667%; height: 20px; text-align: center;">
+                <h4 class="card-subtitle mb-auto"><div id="map" style="width:200px;height:100px;"></div>
+                <script>
+                    var container = document.getElementById('map');
+                    var options = {
+                        center: new kakao.maps.LatLng(<%= CmmUtil.nvl(rDTO.getLatParam()) %>, <%= CmmUtil.nvl(rDTO.getLonParam()) %>),
+                        level: 2
+                    };
 
+                    var map = new kakao.maps.Map(container, options);
 
-        }
-    %></td></a>
-      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
-          <br>
-          <%
-              for (ConDTO rDTO : conList) {
-                  out.println(CmmUtil.nvl(rDTO.getCityParam()));
-                  out.println("<hr/>");
+                    // 마커가 표시될 위치
+                    var markerPosition = new kakao.maps.LatLng(<%= CmmUtil.nvl(rDTO.getLatParam()) %>, <%= CmmUtil.nvl(rDTO.getLonParam()) %>)
 
-                  /*위도 경도 형식*/
+                    // 마커 생성
+                    var marker = new kakao.maps.Marker({
+                        position: markerPosition
+                    });
 
+                    // 마커가 지도 위에 표시되도록 설정합니다
+                    marker.setMap(map);
+                </script>
+            </td>
 
-              }
-          %>
-      </td>
-      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
-          <br>
-          <%
-              for (ConDTO rDTO : conList) {
-                  out.println(CmmUtil.nvl(rDTO.getHptorClnParam()));
-                  out.println("<hr/>");
-
-                  /*위도 경도 형식*/
-
-
-              }
-          %>
-      </td>
-      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
-          <br>
-          <%
-              for (ConDTO rDTO : conList) {
-                  out.println(CmmUtil.nvl(rDTO.getTelParam()));
-                  out.println("<hr/>");
-
-                  /*위도 경도 형식*/
-
-
-              }
-          %>
-      </td>
-      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
-          <br>
-          <%
-              for (ConDTO rDTO : conList) {
-                  out.println(CmmUtil.nvl(rDTO.getHpidParam()));
-                  out.println("<hr/>");
-
-                  /*위도 경도 형식*/
-
-
-              }
-          %>
-      </td>
-      <td style="width: 16.6667%; height: 20px; text-align: center;">&nbsp;
-          <br>
-          <%
-              for (ConDTO rDTO : conList) {
-                  out.println(CmmUtil.nvl(rDTO.getEmclsNameParam()));
-                  out.println("<hr/>");
-
-                  /*위도 경도 형식*/
-
-
-              }
-          %>
-      </td>
-    </tr>
-
+        </tr>
+        <% } %>
+    </tbody>
 </table>
+
+
 <br/>
 <br/>
 

@@ -78,7 +78,7 @@
             font-size: 16px;
             padding: 5px;
             border-radius: 5px;
-            margin: 5px;
+            margin: 10px;
         }
 
         input[type=text] {
@@ -86,7 +86,6 @@
             border: 1px solid #999999;
         }
         <!-------------------------------------------------->
-
 
             label.btn span {
                 font-size: 1.5em ;
@@ -247,12 +246,11 @@
 
 <body>
 <header>
-    <div class="top_fix_zone">
-        <img src="/images/img_hospital_01.jpg" style="opacity: 1" onmouseover="this.style.opacity='0.2'">
+    <div class="box01" style="text-align: center">
+        <img src="/images/suncheonhyang.jpg" style="opacity:0.2">
         <div class="section-content">
             <div class="row">
-                <div class="col-md-12 xs-text-center">
-                <h3 class="text-theme-colored font-36">병의원 리스트</h3>
+                <h2 class="imtext">병의원 리스트</h2>
                     <ol class="breadcrumb white mt-10">
                         <li>
                             <a href="/Main">Home</a>
@@ -269,7 +267,7 @@
 
 <form name="f" method="get" action="/EmerSearch3" onsubmit="return SearchEmer(this);">
     <br> <br> <br> <br>
-
+<div style="text-align: center">
     <select id="classification" style="width: 300px; height: 50px">
         <option value="classification">종별전체</option>
         <option value="territories">권역응급의료센터</option>
@@ -303,8 +301,8 @@
     <select id="district" name="district" style="width: 150px; height: 50px">
         <option>== 시군구 ==</option>
     <br><br><br><br><br><br>
-    <input type="checkbox" class="checkbox" id="CheckAll" onclick="itemAllChk()">
-    전체
+    <input type="hidden" class="checkbox" id="CheckAll" onclick="itemAllChk()">
+
 
     <br><br>
     <div onclick="f_clickFunc()">
@@ -312,35 +310,8 @@
             <option value="B">병원 분류</option>
             <option value="C">의원 분류</option>
         </select>
-        <%--<br>
-        <select name="CODE_MST" style="width: 300px; height: 50px">
-            <option value="D001">내과</option>
-            <option value="D002">소아청소년과</option>
-            <option value="D003">신경과</option>
-            <option value="D004">정신건강의학과</option>
-            <option value="D005">피부과</option>
-            <option value="D006">외과</option>
-            <option value="D007">흉부외과</option>
-            <option value="D008">정형외과</option>
-            <option value="D009">신경외과</option>
-            <option value="D010">성형외과</option>
-            <option value="D011">산부인과</option>
-            <option value="D012">안과</option>
-            <option value="D013">이비인후과</option>
-            <option value="D014">비뇨기과</option>
-            <option value="D016">재활의학과</option>
-            <option value="D017">마취통증의학과</option>
-            <option value="D018">영상의학과</option>
-            <option value="D019">치료방사선과</option>
-            <option value="D020">임상병리과</option>
-            <option value="D021">해부병리과</option>
-            <option value="D022">가정의학과</option>
-            <option value="D023">핵의학과</option>
-            <option value="D024">응급의학과</option>
-            <option value="D026">치과</option>
-            <option value="D034">구강악안면외과</option>
-        </select>--%>
 <br>
+        <br>
         <select name="day" style="width: 300px; height: 50px">
             <option value="1">월요일</option>
             <option value="2">화요일</option>
@@ -352,6 +323,7 @@
             <option value="8">공휴일</option>
         </select>
         <br>
+        <br>
         <select name="pageNo" style="width: 300px; height: 50px">
             <option value="1">순서 1페이지</option>
             <option value="2">순서 2페이지</option>
@@ -359,83 +331,86 @@
             <option value="4">순서 4페이지</option>
         </select>
         <br>
+        <br>
         <select name="ord" style="width: 300px; height: 50px">
             <option value="NAME">병원 이름순</option>
         </select>
-
-
-        <br>
-        <br>
-        <br>
-
-<%--        <select id="QN" style="width: 300px; height: 50px">
-            <option name="QN" value="삼성병원">병원</option>
-        </select>--%>
-
-        <label><input type="radio" name="CODE_MST" value="D001"> 내과</label>
-        <br>
-        <%--&lt;%&ndash;--%><div onclick="f_clickFunc()"><%--&ndash;%&gt;--%>
-        <label><input type="radio" name="CODE_MST" value="D002"> 소아청소년과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D003"> 신경과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D004"> 정신건강의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D005"> 피부과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D006"> 외과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D007"> 흉부외과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D008"> 정형외과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D009"> 신경외과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D010"> 성형외과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D011"> 산부인과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D012"> 안과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D013"> 이비인후과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D014"> 비뇨기과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D016"> 재활의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D017"> 마취통증의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D018"> 영상의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D019"> 치료방사선과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D020"> 임상병리과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D021"> 해부병리과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D022"> 가정의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D023"> 핵의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D024"> 응급의학과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D026"> 치과</label>
-        <br>
-        <label><input type="radio" name="CODE_MST" value="D034"> 구강악안면외과</label>
     </div>
 
-    <div>
+        <br>
+        <br>
+        <br>
+
+        <table>
+            <tr>
+                <input type="radio" name="CODE_MST" value="D001"><b> 내과 &nbsp;&nbsp;</b>
+            </tr><tr>
+            <input type="radio" name="CODE_MST" value="D002"><b> 소아청소년과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D003"><b> 신경과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D004"><b> 정신건강의학과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D005"><b> 피부과 &nbsp;&nbsp;</b>
+            </tr><%--<br>--%><tr>
+        <input type="radio" name="CODE_MST" value="D006"><b> 외과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D007"><b> 흉부외과 &nbsp;&nbsp;</b>
+            </tr><br><tr>
+        <input type="radio" name="CODE_MST" value="D008"><b> 정형외과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D009"><b> 신경외과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D010"><b> 성형외과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D011"><b> 산부인과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D012"><b> 안과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D013"><b> 이비인후과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D014"><b> 비뇨기과 &nbsp;&nbsp;</b>
+        </tr><br><tr>
+        <input type="radio" name="CODE_MST" value="D016"><b> 재활의학과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D017"><b> 마취통증의학과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D018"><b> 영상의학과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D019"><b> 치료방사선과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D020"><b> 임상병리과 &nbsp;&nbsp;</b>
+        </tr><br><tr>
+        <input type="radio" name="CODE_MST" value="D021"><b> 해부병리과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D022"><b> 가정의학과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D023"><b> 핵의학과 &nbsp;&nbsp;</b>
+            </tr><tr>
+        <input type="radio" name="CODE_MST" value="D024"><b> 응급의학과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D026"><b> 치과 &nbsp;&nbsp;</b>
+        </tr><tr>
+        <input type="radio" name="CODE_MST" value="D034"><b> 구강악안면외과 &nbsp;&nbsp;</b>
+        </tr>
+        </table>
+    </div>
+
+    <div style="text-align: center">
         <label>
-            <input type="text" id="hospital_name" placeholder="병원명을 입력하세요." name="hosname" value="병원">
+            <form name="input" method="post" action="">
+            <input type="text" id="hospital_name" placeholder="병원명을 입력하세요." name="hosname">
+            <input type="reset" value="초기화">
+            </form>
+        </label>
+
+        <br>
+        <label>
         </label>
         <br>
         <label>
-            <input type="button" id="initializer" style="WIDTH: 80pt; HEIGHT: 20pt" value="초기화">
-        </label>
-        <br>
-        <label>
-            <button onclick="doSearch()">검색</button>
-            <textarea id="contents"> </textarea>
+<%--            <button onclick="doSearch()">검색</button>--%>
+<%--            <textarea id="contents"> </textarea>--%>
             <input type="submit" button onclick="doSearch()" id="search" name="search" style="WIDTH: 80pt; HEIGHT: 20pt" value="검색" >
         </label>
 

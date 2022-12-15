@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class AmbDTO {
-    public List<AmbRowDTO> AmbRow;
+public class EmerLocDTO {
+    private List<EmerLocRowDTO> EmerLocRow;
 }
 //s

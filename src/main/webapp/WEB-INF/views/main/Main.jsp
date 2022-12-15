@@ -6,7 +6,7 @@
 
     <!-- Javascript files-->
     <script type="text/javascript">
-    <script src="/maincss.css"></script>
+        <script src="/maincss.css"></script>
     <script src="/mainjs.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
@@ -122,8 +122,9 @@
                     <nav class="site-navbar">
                         <ul>
                             <li><a class="active" href="index">Home</a></li>
-                            <li><a href="about.html">즐겨찾기</a></li>
-                            <li><a href="action.html">내 주변 병원찾기</a></li>
+                            <li><a href="action.html">맞춤형 동영상</a></li>
+                            <li><a href="Emer/EmerInfo">실시간 응급실가용병상</a></li>
+                            <li><a href="Emer/EmerLoc">병원 위치</a></li>
                             <li><a href="Amb/AmbInfo">구급차 정보</a></li>
                             <li><a href="EmerSearch2">병의원 리스트</a></li>
                         </ul>

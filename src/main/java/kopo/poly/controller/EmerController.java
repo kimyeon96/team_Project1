@@ -4,14 +4,12 @@ import kopo.poly.dto.EmerRowDTO;
 import kopo.poly.service.IEmerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+
 import java.util.List;
 
 
@@ -42,6 +40,6 @@ public class EmerController {
         return "Emer/EmerInfo";
     }
 }
-
+//s
 
 

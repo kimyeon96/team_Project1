@@ -10,10 +10,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 @Slf4j
@@ -21,13 +21,14 @@ import java.util.List;
 public class EmerService implements IEmerService {
     @Override
     public List<EmerRowDTO> getEmer() throws Exception {
-
+        //url 호출
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=Ue8dY6yKz%2BndKBNELR5ZWw%2ByA5dK2XzufXqTjOUcJqMsNhR8gyBPZ3G8xyyLbYGRya5OHkJVU3nFI5wSM3aARA%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("STAGE1", "UTF-8") + "=" + URLEncoder.encode("서울특별시", "UTF-8")); /*주소(시도)*/
+        urlBuilder.append("&" + URLEncoder.encode("STAGE1", "UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*주소(시도)*/
 //        urlBuilder.append("&" + URLEncoder.encode("STAGE2", "UTF-8") + "=" + URLEncoder.encode("강남구", "UTF-8")); /*주소(시군구)*/
 //        urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("1000", "UTF-8")); /*목록 건수*/
+        log.info("urlBuilder : " + urlBuilder);
 
         Document documentInfo = null;
         documentInfo = (Document) DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(urlBuilder.toString());
@@ -47,11 +48,11 @@ public class EmerService implements IEmerService {
             eDTO.setDutyTel3(tagValue.getTagValue("dutyTel3", eElement));
             eDTO.setHvec(tagValue.getTagValue("hvec", eElement));
 
-            log.info(i + "번째 ======================");
-            log.info("dutyName : " + eDTO.getDutyName());
-            log.info("dutyTel3 : " + eDTO.getDutyTel3());
-            log.info("dutyHvec : " + eDTO.getHvec());
-            log.info("======================");
+//            log.info(i + "번째 ================");
+//            log.info("dutyName : " + eDTO.getDutyName());
+//            log.info("dutyTel3 : " + eDTO.getDutyTel3());
+//            log.info("dutyHvec : " + eDTO.getHvec());
+//            log.info("======================");
 
             eList.add(eDTO);
         }
@@ -59,3 +60,4 @@ public class EmerService implements IEmerService {
         return eList;
     }
 }
+//s

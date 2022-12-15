@@ -22,4 +22,6 @@ public class ConDTO {
     private String telParam;
     private String emclsNameParam;
     private String hpidParam;
+    private String latParam;
+    private String lonParam;
 }

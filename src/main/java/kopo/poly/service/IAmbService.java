@@ -8,3 +8,4 @@ public interface IAmbService {
     List<AmbRowDTO> getAmb() throws Exception;
 
 }
+//s

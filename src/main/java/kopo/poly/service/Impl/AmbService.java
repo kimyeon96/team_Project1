@@ -44,10 +44,10 @@ public class AmbService implements IAmbService {
             AmbRowDTO nDTO = new AmbRowDTO();
             Node nNode = nList.item(i);
             Element eElement = (Element) nNode;
-            nDTO.setDutyName(tagValue.getTagValue("dutyName",eElement));
-            nDTO.setDutyAddr(tagValue.getTagValue("dutyAddr",eElement));
-            nDTO.setCarSeq(tagValue.getTagValue("carSeq",eElement));
-            nDTO.setOnrTel(tagValue.getTagValue("onrTel",eElement));
+            nDTO.setDutyName(tagValue.getTagValue("dutyName", eElement));
+            nDTO.setDutyAddr(tagValue.getTagValue("dutyAddr", eElement));
+            nDTO.setCarSeq(tagValue.getTagValue("carSeq", eElement));
+            nDTO.setOnrTel(tagValue.getTagValue("onrTel", eElement));
 
             log.info(i + "번째 ================");
             log.info("dutyName : " + nDTO.getDutyName());
@@ -62,6 +62,6 @@ public class AmbService implements IAmbService {
         return eList;
 
     }
-
+//s
 
 }

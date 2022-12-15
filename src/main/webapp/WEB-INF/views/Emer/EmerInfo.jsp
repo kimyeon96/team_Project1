@@ -7,7 +7,6 @@
     <title>실시간 응급실가용병상</title>
     <script src="/js/jquery-3.6.1.min.js"></script>
 
-    </style>
     <script>
         window.onload=em;
         function em(){
@@ -29,8 +28,11 @@
 
                         $("#emer_info").append("<div><b>병원이름 : "+dn+"</b></div>");
                         $("#emer_info").append("<div><b>전화번호 : "+dt+"</b></div>")
-                        $("#emer_info").append("<div><b>가용병상 : "+hv+"</b></div>")
+                        $("#emer_info").append("<div><b>가용병상 개수: "+hv+"</b></div>")
                         $("#emer_info").append("<br>")
+
+
+
 
 
                     }
@@ -42,9 +44,9 @@
 </head>
 <body>
 <div style="text-align: center">
-    <br><br><br>
-    <label>응급실가용병상</label>
-    <br>
+    <br><br><br><br>
+
+    <label><strong>실시간 응급실가용병상</strong>  </label>
     <br>
     <br>
     <br>
